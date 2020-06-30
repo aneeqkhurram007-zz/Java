@@ -6,6 +6,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - lab2",
+      "request": "launch",
+      "mainClass": "lab2",
+      "projectName": "Java_d42ac8be"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - lab2",
+      "request": "launch",
+      "mainClass": "onlineLab3.lab2",
+      "projectName": "Java_d42ac8be"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - lab1",
       "request": "launch",
       "mainClass": "lab1",

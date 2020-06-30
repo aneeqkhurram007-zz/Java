@@ -27,6 +27,6 @@ public class lab1 {
             System.out.println("\nBoth are different");
         }
 
-        num.close();
+        // num.close();
     }
 }
