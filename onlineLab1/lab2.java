@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 //package onlineLab1;
 
 public class lab2 {
@@ -21,7 +23,8 @@ public class lab2 {
         System.out.println("\n" + sum);
 
         pie = 4 * sum;
-        System.out.println("\nThe value of pi is: " + pie);
+        DecimalFormat decimalFormat = new DecimalFormat("#.0000");
+        System.out.println("\nThe value of pi is: " + decimalFormat.format(pie));
     }
 
 }

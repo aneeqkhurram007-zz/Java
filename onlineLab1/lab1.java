@@ -3,6 +3,7 @@
  * lab1
  */
 
+import java.lang.System.Logger;
 import java.util.*;
 
 public class lab1 {
@@ -27,6 +28,6 @@ public class lab1 {
             System.out.println("\nBoth are different");
         }
 
-        // num.close();
+        num.close();
     }
 }
