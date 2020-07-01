@@ -18,5 +18,6 @@ public class lab3 {
             i++;
         }
         System.out.println("\nThe sum is: " + sum);
+        num.close();
     }
 }

@@ -8,7 +8,7 @@ public class lab5 {
         x = number.nextInt();
         System.out.println("Value for y:");
         y = number.nextInt();
-        System.out.println("Please enter option (1,2,3): ");
+        menu();
         char option;
         option = number.next().charAt(0);
         System.out.println("You entered " + option);
@@ -65,15 +65,12 @@ public class lab5 {
         return factorial(x) / factorial(x - y);
     }
 
-    public static int validate(int x) {
-        do {
-            System.out.println("Enter a number: ");
-            Scanner num = new Scanner(System.in);
-            x = num.nextInt();
-            num.close();
-        } while (x < 0);
-
-        return x;
-    }
+    /*
+     * public static int validate(int x) { do {
+     * System.out.println("Enter a number: "); Scanner num = new Scanner(System.in);
+     * x = num.nextInt(); num.close(); } while (x < 0);
+     * 
+     * return x; }
+     */
 
 }
