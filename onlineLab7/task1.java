@@ -18,7 +18,7 @@ public class task1 {
                 System.out.println("You entered marks greater than 100. Try Again.");
                 i--;
             }
-
+            num.close();
         }
         avg(marks);
         num.close();
