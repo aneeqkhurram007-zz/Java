@@ -18,13 +18,13 @@ public class task1 {
                 System.out.println("You entered marks greater than 100. Try Again.");
                 i--;
             }
-            num.close();
+
         }
         avg(marks);
         num.close();
     }
 
-    public static void avg(int array[]) {
+    public static void avg(int[] array) {
         int i, average = 0;
         System.out.println("Marks entered by the user: ");
         for (i = 0; i < 10; i++) {

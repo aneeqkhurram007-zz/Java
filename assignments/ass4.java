@@ -12,7 +12,7 @@ public class ass4 {
         System.out.println("\t  6  |  7  |  8  ");
         Scanner num = new Scanner(System.in);
 
-        char[] array;
+        char array[];
         array = new char[9];
         int position, flag1 = 0, flag2 = 0;
         System.out.println("\n'O' marks for player 1: ");
