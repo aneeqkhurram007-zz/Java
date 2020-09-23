@@ -19,7 +19,7 @@ public class task1_NumbersTable {
             choice = num.next().charAt(0);
 
         } while (choice == 'y' || choice == 'Y');
-
+        System.exit(0);
         num.close();
 
     }
