@@ -4,6 +4,7 @@ import java.util.*;
 
 public class task1_NumbersTable {
     public static void main(String[] args) {
+        // task2_PrimeNumbers n = new task2_PrimeNumbers();
         Scanner num = new Scanner(System.in);
         int x;
         char choice;

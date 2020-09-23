@@ -1,4 +1,4 @@
-public class quadratic {
+public class Quadratic {
     private int a;
     private int b;
     private int c;
@@ -30,5 +30,4 @@ public class quadratic {
     public double computeRoots(int a, int b, int c) {
         return (-b - (Math.sqrt(b) - 4 * a * c)) / 2 * a;
     }
-
 }
