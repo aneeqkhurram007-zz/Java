@@ -1,7 +1,5 @@
 import java.util.*;
 
-// import org.graalvm.compiler.core.common.util.IntList;
-
 public class task2_PrimeNumbers {
     public static void main(String[] args) {
         Scanner num = new Scanner(System.in);
@@ -13,7 +11,7 @@ public class task2_PrimeNumbers {
         x = num.nextInt();
 
         System.out.println("Prime numbers are : ");
-        for (int i = 0; i <= x; i++) {
+        for (int i = 2; i <= x; i++) {
             check = false;
             for (int k = 2; k < i; k++) {
 
