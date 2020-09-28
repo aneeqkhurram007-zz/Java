@@ -1,7 +1,8 @@
 import java.util.*;
 
 public class BankAccountTest {
-    public static void main(String[] args) throws Exception {
+
+    public static void main(String[] args) {
         BankAccount bankAccount = new BankAccount();
         Scanner input = new Scanner(System.in);
         System.out.println("Enter your name: ");
