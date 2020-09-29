@@ -6,7 +6,9 @@ public class CylinderTest {
         double radius, height;
         System.out.println("Constructor With No Arg");
         Cylinder cylinder = new Cylinder();
+
         cylinder.displayInfo();
+
         System.out.println("\n\nConstructor With One Parameter");
         System.out.print("Enter value for height : ");
         height = input.nextDouble();
