@@ -3,23 +3,21 @@ package task2;
 public class OdometerMain {
     public static void main(String[] args) {
 
-        Odometer o1 = new Odometer(53.7, 32.1);
-        Odometer o2 = new Odometer(42.9, 15.4);
-        Odometer o3 = new Odometer(220, 27);
-        Odometer o4 = new Odometer(672.78, 36);
-        Odometer o5 = new Odometer(430.9, 27);
-
-        o1.addmiles(61.7);
-        o2.addmiles(404.45);
-        o3.addmiles(3);
-        o4.addmiles(224);
-        o5.addmiles(78);
-
-        System.out.println(o1);
-        System.out.println(o2);
-        System.out.println(o3);
-        System.out.println(o4);
-        System.out.println(o5);
+        Odometer o1 = new Odometer();
+        o1.setFuel(15.4);
+        o1.setMiles(42.9);
+        o1.addMiles(404.45);
+        o1.displayInfo();
+        Odometer o2 = new Odometer();
+        o2.setFuel(10.3);
+        o2.setMiles(15.65);
+        o2.addMiles(7.32);
+        o2.displayInfo();
+        Odometer o3 = new Odometer();
+        o3.setFuel(34.2);
+        o3.setMiles(64.5);
+        o3.addMiles(295.45);
+        o3.displayInfo();
 
     }
 }
