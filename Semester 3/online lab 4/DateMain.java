@@ -15,8 +15,8 @@ public class DateMain {
         Date d2 = new Date(day, month, year);
         d1.printDate();
         d2.printDate();
-        Date d3 = new Date(); // Date Class from java.util.*;
-        Date d4 = new Date(); // Date Class from java.util.*;
+        Date d3 = new Date();
+        Date d4 = new Date();
         d3 = d2;
         d4 = d3;
         d3.setMonth(03);
