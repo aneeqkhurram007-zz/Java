@@ -23,6 +23,10 @@ public class CylinderTest {
 
         Cylinder cylinder3 = new Cylinder(radius, height);
         cylinder3.displayInfo();
+        System.out.println("\nOverloaded Method");
+        Cylinder cylinder4 = new Cylinder();
+        cylinder4.setCylinderData(6, 7);
+        cylinder4.displayInfo();
         input.close();
     }
 }

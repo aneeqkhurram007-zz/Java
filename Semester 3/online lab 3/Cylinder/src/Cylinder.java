@@ -30,7 +30,7 @@ public class Cylinder {
     public Cylinder(double heightArg1) {
 
         height = heightArg1;
-        radius = 1;
+        radius = 1.5;
     }
 
     // Two Arg Constructor
@@ -39,6 +39,22 @@ public class Cylinder {
         radius = radiusArg2;
         height = heightArg2;
 
+    }
+
+    // Method Overloading
+    public void setCylinderData() {
+        this.radius = 2;
+        this.height = 5;
+    }
+
+    public void setCylinderData(double height) {
+        this.radius = 2;
+        this.height = height;
+    }
+
+    public void setCylinderData(double radius, double height) {
+        this.radius = radius;
+        this.height = height;
     }
 
     public double computeArea() {
