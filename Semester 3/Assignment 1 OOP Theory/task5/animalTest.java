@@ -9,6 +9,8 @@ public class animalTest {
         animal a5 = new animal("tiger", 10, 8.6);
         System.out.println(a1);
         System.out.println(a5);
+        System.out.println(a2);
+        System.out.println(a3);
         System.out.println(a1.isEquals(a5));
         System.out.println(a4.endangered());
 
