@@ -17,7 +17,7 @@ public class Date {
     }
 
     public void setMonth(int month) {
-        this.month = (month >= 1 && day <= 12) ? (this.month = month) : (this.month = 1);
+        this.month = (month >= 1 && month <= 12) ? (this.month = month) : (this.month = 1);
     }
 
     public int getYear() {
@@ -25,7 +25,7 @@ public class Date {
     }
 
     public void setYear(int year) {
-        this.year = (year >= 1) ? (this.year = year) : (this.year = 1);
+        this.year = (year > 1) ? (this.year = year) : (this.year = 1);
     }
 
     public Date(int day, int month, int year) {

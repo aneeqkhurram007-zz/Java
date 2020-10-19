@@ -5,6 +5,8 @@ public class Medicine {
     private String name;
     private double price;
     private double hydrochlorideAmount;
+    private int manufDate;
+
     public static int count = 0;
     public int id;
 
@@ -45,15 +47,24 @@ public class Medicine {
         d.setDay(input.nextInt());
         d.setMonth(input.nextInt());
         d.setYear(input.nextInt());
+        manufDate = d.getYear();
         return d;
     }
 
     public Date expiryDate(Date d) {
+
         System.out.print("\nEnter Expiry date: ");
         d.setDay(input.nextInt());
         d.setMonth(input.nextInt());
         d.setYear(input.nextInt());
+        if (manufDate >= d.getYear()) {
+            System.out.println("Expiry Date cannot be less than Manufacturing Date.\nTry Again ");
+            d.setYear(input.nextInt());
+
+        }
+
         return d;
+
     }
 
     public double calculatePrice() {
