@@ -5,8 +5,10 @@ public class StudentTest {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String name;
-        String[] listOfCourses = new String[5];
-        float[] listOfQuiz;
+
+        ArrayList<String> listOfCourses = new ArrayList<String>(5);
+        ArrayList<Float> listOfQuizzes;
+
         int numOfQuiz;
         int numOfStd;
 
@@ -24,28 +26,31 @@ public class StudentTest {
             name = input.nextLine();
 
             System.out.println("Enter name of your courses: ");
-            for (int j = 0; j < listOfCourses.length; j++) {
 
-                listOfCourses[j] = input.nextLine();
+            for (int j = 0; input.hasNextLine() && j < 5; j++) {
+
+                listOfCourses.add(input.nextLine());
+
             }
+            input.nextLine();
             System.out.print("Enter number of quizzes: ");
             numOfQuiz = input.nextInt();
 
-            listOfQuiz = new float[numOfQuiz];
-
+            listOfQuizzes = new ArrayList<Float>(numOfQuiz);
             System.out.println("Enter your marks in quizzes: ");
-            for (int j = 0; j < listOfQuiz.length; j++) {
-                listOfQuiz[j] = input.nextFloat();
-                while (listOfQuiz[j] < 0) {
+            for (int j = 0; j < listOfQuizzes.size() && input.hasNextLine(); j++) {
+                input.nextLine();
+                listOfQuizzes.add(input.nextFloat());
+                while (listOfQuizzes.get(j) < 0) {
                     System.out.println("You entered invalid marks. Try Again.");
-                    listOfQuiz[j] = input.nextFloat();
+                    listOfQuizzes.add(input.nextFloat());
                 }
-
             }
 
-            students[i] = new Student(name, listOfCourses, listOfQuiz, numOfQuiz);
+            students[i] = new Student(name, listOfCourses, listOfQuizzes, numOfQuiz);
 
         }
+
         System.out.println("\n\tStudent Data");
         for (int i = 0; i < students.length; i++) {
             students[i].printInfo();
@@ -53,4 +58,5 @@ public class StudentTest {
 
         input.close();
     }
+
 }

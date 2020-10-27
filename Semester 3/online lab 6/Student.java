@@ -5,8 +5,10 @@ import java.util.*;
  */
 public class Student {
     private String name;
-    private String[] listOfCourses = new String[5];
-    private float[] listOfQuizes;
+
+    private ArrayList<String> listOfCourses = new ArrayList<String>(5);
+    private ArrayList<Float> listOfQuizes;
+
     private static double passLimit;
     Scanner inpuScanner = new Scanner(System.in);
 
@@ -26,14 +28,14 @@ public class Student {
         passLimit = limit;
     }
 
-    public Student(String name, String[] listOfCourses, float[] listOfQuizes, int numOfQuiz) {
+    public Student(String name, ArrayList<String> listOfCourses, ArrayList<Float> listOfQuizes, int numOfQuiz) {
         setName(name);
-        this.listOfQuizes = new float[numOfQuiz];
-        for (int i = 0; i < listOfCourses.length; i++) {
-            this.listOfCourses[i] = listOfCourses[i];
+        this.listOfQuizes = new ArrayList<Float>(numOfQuiz);
+        for (int i = 0; i < listOfCourses.size(); i++) {
+            this.listOfCourses.add(listOfCourses.get(i));
         }
-        for (int i = 0; i < listOfQuizes.length; i++) {
-            this.listOfQuizes[i] = listOfQuizes[i];
+        for (int i = 0; i < listOfQuizes.size(); i++) {
+            this.listOfQuizes.add(listOfQuizes.get(i));
         }
 
     }
