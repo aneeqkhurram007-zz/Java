@@ -4,25 +4,28 @@ public class BankAccount {
 
     private String name;
     private double balance;
-    private ArrayList<Double> transacAmount = new ArrayList<Double>();
+    ArrayList<Double> transacAmount;
     private Random random = new Random();
 
     public BankAccount(String name) {
 
         this.name = name;
         this.balance = 500;
-
-        for (int i = 0; i < 5; i++) {
-            this.transacAmount.add(i, (1 + random.nextDouble() * 500));
-        }
+        this.transacAmount = new ArrayList<Double>();
+        /*
+         * for (int i = 0; i < 5; i++) { this.transacAmount.add(i, (1 +
+         * random.nextDouble() * 500)); }
+         */
     }
 
     public BankAccount(String name, Double balance) {
         this.name = name;
         this.balance = balance;
-        for (int i = 0; i < 5; i++) {
-            this.transacAmount.add(i, (-1 + random.nextDouble() * 500));
-        }
+        this.transacAmount = new ArrayList<Double>();
+        /*
+         * for (int i = 0; i < 5; i++) { this.transacAmount.add(i, (-1 +
+         * random.nextDouble() * 500)); }
+         */
     }
 
     public void printBalance() {
@@ -36,6 +39,26 @@ public class BankAccount {
             this.transacAmount.add(amount);
 
         }
+    }
+
+    public double computeTransac() {
+        double balance;
+        double sum = 0;
+
+        for (Double double1 : transacAmount) {
+            sum += double1;
+        }
+        balance = this.balance - sum;
+        return balance;
+    }
+
+    public void printCreditTransac() {
+        for (int i = 0; i < transacAmount.size(); i++) {
+            if (transacAmount.get(i) < 0) {
+                System.out.println("Credit Card transac = " + transacAmount.get(i));
+            }
+        }
+
     }
 
     public void withdraw(double amount) {
