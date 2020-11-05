@@ -21,6 +21,7 @@ public class task2_PrimeNumbers {
                 }
 
             }
+
             if (check == false) {
                 // arr[c] = i;
                 System.out.println(i);

@@ -2,7 +2,7 @@ public class QuadraticRoots {
     private double A;
     private double B;
     private double C;
-    public double X1, X2, disc;
+    public double X1, X2, disc;\
 
     // Getters and Setters
     public double getA() {
@@ -34,6 +34,7 @@ public class QuadraticRoots {
         A = a;
         B = b;
         C = c;
+        \
     }
 
     // Discrimminant Calculation
