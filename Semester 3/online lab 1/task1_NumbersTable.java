@@ -13,7 +13,7 @@ public class task1_NumbersTable {
             System.out.println("Enter a number: ");
             x = num.nextInt();
             for (int i = 1; i <= 10; i++) {
-                System.out.println(x + " " + "X" + " " + i + " " + "=" + " " + x * i);
+                System.out.println(x + " X " + i + " = " + x * i);
             }
             System.out.println("Do you want to continue (y/n): ");
             choice = num.next().charAt(0);
