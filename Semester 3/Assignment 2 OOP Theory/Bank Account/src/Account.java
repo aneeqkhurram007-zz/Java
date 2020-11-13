@@ -1,19 +1,31 @@
+import java.util.*;
+
 public class Account {
     private String cnic;
     private long accountNumber;
     private String accountTitle;
     private double balance;
     private static int count = 0;
+    protected static Scanner input = new Scanner(System.in);
 
     public void addAccount(String cnic, String accountTitle, double balance) {
-        this.cnic = cnic;
-        this.accountNumber = ++count;
-        this.accountTitle = accountTitle;
-        this.balance = balance;
+
+        setAccountTitle(accountTitle);
+        setCnic(cnic);
+        setBalance(balance);
     }
 
     public Account() {
-        System.out.println("Constructor Created");
+        ++count;
+    }
+
+    public Account(String cnic, long accountNumber, String accountTitle, double balance) {
+        System.out.println("Basic Account Credentials");
+        setAccountTitle(accountTitle);
+        setCnic(cnic);
+        setAccountNumber(accountNumber);
+        setBalance(balance);
+        ++count;
     }
 
     public void deposit(double amount) {
@@ -33,7 +45,21 @@ public class Account {
     }
 
     public void setCnic(String cnic) {
-        this.cnic = cnic;
+        do {
+            if (checkCnic(cnic) == true) {
+                this.cnic = cnic;
+                break;
+            } else {
+                System.out.print("\nTry Again! You entered wrong cnic: ");
+                cnic = input.nextLine();
+
+            }
+        } while (checkString(cnic) == false);
+    }
+
+    public static boolean checkCnic(String cnic) {
+
+        return (cnic.matches("[0-9]+"));
     }
 
     public long getAccountNumber() {
@@ -41,7 +67,21 @@ public class Account {
     }
 
     public void setAccountNumber(long accountNumber) {
-        this.accountNumber = accountNumber;
+        do {
+            if (checkAccountNumber(accountNumber) == true) {
+                this.accountNumber = accountNumber;
+                break;
+            } else {
+                System.out.print("\nTry Again! You entered wrong account Number\nFirst digit should be 1: ");
+                accountNumber = input.nextLong();
+
+            }
+        } while (true);
+    }
+
+    public static boolean checkAccountNumber(long accountNumber) {
+        String s = String.valueOf(accountNumber);
+        return s.charAt(0) == '1';
     }
 
     public String getAccountTitle() {
@@ -49,7 +89,23 @@ public class Account {
     }
 
     public void setAccountTitle(String accountTitle) {
-        this.accountTitle = accountTitle;
+        do {
+            if (checkString(accountTitle) == true) {
+                this.accountTitle = accountTitle;
+                break;
+            } else {
+                System.out.print(
+                        "\nTry Again! You entered wrong account Title\nFirst letter should be capital\nThere should be no numbers in the name: ");
+                accountTitle = input.nextLine();
+
+            }
+        } while (checkString(accountTitle) == false);
+    }
+
+    public static boolean checkString(String accountTitle) {
+
+        return ((accountTitle != null) && (!accountTitle.equals("")) && (accountTitle.matches("^[a-zA-Z]*$"))
+                && (accountTitle.charAt(0) >= 65 && accountTitle.charAt(0) <= 90));
     }
 
     public double getBalance() {
@@ -57,7 +113,15 @@ public class Account {
     }
 
     public void setBalance(double balance) {
-        this.balance = balance;
+        do {
+            if (balance > 0) {
+                this.balance = balance;
+                break;
+            } else {
+                System.out.print("\nYou entered invalid balance amount. Try Again: ");
+                balance = input.nextDouble();
+            }
+        } while (true);
     }
 
     public static int getCount() {
