@@ -16,11 +16,31 @@ public class PaymentTest {
 
         System.out.println("\n\tCredit Card Payment");
 
-        System.out.println("Enter First Credit Card Info\nName/Card Number/Date(yyyy/mm/dd)): ");
-        CreditCardPayment card1 = new CreditCardPayment("Aneeq", 12345, LocalDate.of(2011, 04, 15));
+        System.out.println("Enter First Credit Card Info: ");
+        System.out.println("Enter your name: ");
+        input.nextLine();
+        String name = input.nextLine();
 
-        System.out.println("Enter Second Credit Card Info\nName/Card Number/Date(yyyy/mm/dd)): ");
-        CreditCardPayment card2 = new CreditCardPayment("Murshad", 6789, LocalDate.of(2013, 05, 16));
+        System.out.println("Enter your card number: ");
+        long cardNumber = input.nextLong();
+
+        System.out.println("Enter expiry date: ");
+        LocalDate date = LocalDate.of(input.nextInt(), input.nextInt(), input.nextInt());
+
+        CreditCardPayment card1 = new CreditCardPayment(name, cardNumber, date);
+
+        System.out.println("Enter Second Credit Card Info: ");
+        System.out.println("Enter your name: ");
+        input.nextLine();
+        name = input.nextLine();
+
+        System.out.println("Enter your card number: ");
+        cardNumber = input.nextLong();
+
+        System.out.println("Enter expiry date: ");
+        date = LocalDate.of(input.nextInt(), input.nextInt(), input.nextInt());
+
+        CreditCardPayment card2 = new CreditCardPayment(name, cardNumber, date);
 
         System.out.println("\nOutputs");
         cash1.paymentDetails();

@@ -37,7 +37,7 @@ public class CreditCardPayment extends Payment {
 
     @Override
     public void paymentDetails() {
-        System.out.println("Credit Card Information: ");
+        System.out.println("\n\tCredit Card Information: ");
         System.out.println("Name: " + getName());
         System.out.println("Credit Card Number: " + getCreditCardNumber());
         System.out.println("Expiry Date: " + getExpirDate());
