@@ -16,10 +16,9 @@ public class Account {
     }
 
     public Account() {
-        System.out.println("Basic Account Credentials");
         setAccountTitle("AneeqKhurram");
         setCnic("35201");
-        setAccountNumber(123);
+        this.accountNumber = 123;
         setBalance(500);
 
         ++count;

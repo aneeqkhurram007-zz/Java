@@ -30,7 +30,6 @@ public class CurrentAccount extends Account {
         setAccountNumber(12345);
         setBalance(560);
 
-        System.out.println("\nCurrent Account Created\n");
         ++count;
     }
 

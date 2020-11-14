@@ -53,16 +53,15 @@ public class SavingAccount extends Account {
     }
 
     public SavingAccount() {
-        System.out.println("Enter Data for Saving Accounts");
         setAccountTitle("Aneeq");
         setCnic("35201");
         setAccountNumber(2345);
         setBalance(700);
-        System.out.println("\nSaving Account Created\n");
         ++count;
     }
 
     public SavingAccount(String cnic, long accountNumber, String accountTitle, double balance) {
+        System.out.println("Enter Data for Saving Accounts");
 
         setAccountTitle(accountTitle);
         setCnic(cnic);
@@ -81,7 +80,7 @@ public class SavingAccount extends Account {
     }
 
     public void checkBalance() {
-        System.out.println("Your current balance is = " + this.getBalance());
+        System.out.println("Your saved balance is = " + this.getBalance());
     }
 
     public double caclulateInterestRate() {
