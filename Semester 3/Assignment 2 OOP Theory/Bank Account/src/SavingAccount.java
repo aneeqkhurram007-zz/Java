@@ -1,7 +1,6 @@
 public class SavingAccount extends Account {
     private double monthlyInterestRate;
     private long accountNumber;
-
     private static int count = 0;
 
     public void addAccount(String cnic, String accountTitle, double balance, long accountNumber,

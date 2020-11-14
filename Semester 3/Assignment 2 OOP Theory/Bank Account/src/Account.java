@@ -18,7 +18,7 @@ public class Account {
     public Account() {
         setAccountTitle("AneeqKhurram");
         setCnic("35201");
-        this.accountNumber = 123;
+        this.accountNumber = 12345;
         setBalance(500);
 
         ++count;
