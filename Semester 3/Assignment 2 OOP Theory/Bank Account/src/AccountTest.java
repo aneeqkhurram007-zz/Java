@@ -9,60 +9,68 @@ public class AccountTest {
 
     public static void main(String[] args) {
         int choice;
+        char option;
         Account[] account = new Account[5];
         CurrentAccount[] curreAccount = new CurrentAccount[5];
         SavingAccount[] savingAccount = new SavingAccount[5];
 
-        for (int i = 0, j = 0, k = 0; i < 5 && j < 5 && k < 5;) {
+        int i = 0, j = 0, k = 0;
 
-            do {
-                choice = display();
+        do {
+            choice = display();
 
-                switch (choice) {
-                    case 1:
-                        entries();
-                        curreAccount[j] = new CurrentAccount();
-                        curreAccount[j].addAccount(cnic, accountTitle, balance, accountNumber, 5);
+            switch (choice) {
+                case 1:
+                    entries();
 
-                        j++;
-                        break;
-                    case 2:
-                        entries();
-                        savingAccount[k] = new SavingAccount();
-                        savingAccount[k].addAccount(cnic, accountTitle, balance, accountNumber, 5);
-                        k++;
-                        break;
-                    case 3:
-                        entries();
-                        account[i] = new Account(cnic, accountNumber, accountTitle, balance);
-                        account[i].deposit(500);
-                        i++;
-                        break;
-                    case 4:
-                        entries();
-                        account[i] = new Account(cnic, accountNumber, accountTitle, balance);
-                        account[i].withdraw(100);
-                        i++;
-                        break;
-                    case 5:
-                        curreAccount[j].checkBalance();
-                        savingAccount[k].checkBalance();
-                        j++;
-                        k++;
+                    curreAccount[j] = new CurrentAccount();
+                    curreAccount[j].addAccount(cnic, accountTitle, balance, accountNumber, 5);
+                    curreAccount[j].checkBalance();
 
-                        break;
-                    case 6:
-                        System.out.println("Have a nice Day :)");
-                        System.exit(0);
+                    j++;
+                    break;
+                case 2:
+                    entries();
+                    savingAccount[k] = new SavingAccount();
+                    savingAccount[k].addAccount(cnic, accountTitle, balance, accountNumber, 5);
+                    savingAccount[k].checkBalance();
+                    k++;
+                    break;
+                case 3:
 
-                    default:
-                        System.out.println("You entered wrong Choice. Try Again");
-                        break;
-                }
+                    account[i] = new Account();
+                    System.out.println("Enter the amount you want to deposit: ");
+                    account[i].deposit(input.nextDouble());
+                    i++;
+                    break;
+                case 4:
 
-            } while (choice < 1 && choice > 6);
+                    account[i] = new Account();
+                    System.out.println("Enter the amount you want to withdraw: ");
+                    account[i].withdraw(input.nextDouble());
+                    i++;
+                    break;
+                case 5:
+                    curreAccount[j] = new CurrentAccount();
+                    curreAccount[j].checkBalance();
+                    savingAccount[j] = new SavingAccount();
+                    savingAccount[k].checkBalance();
+                    j++;
+                    k++;
 
-        }
+                    break;
+                case 6:
+                    System.out.println("Have a nice Day :)");
+                    System.exit(0);
+
+                default:
+                    System.out.println("You entered wrong Choice.");
+                    break;
+
+            }
+            System.out.println("Do you want to continue: ");
+            option = input.next().charAt(0);
+        } while (option == 'y');
 
     }
 

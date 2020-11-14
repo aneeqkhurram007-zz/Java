@@ -53,6 +53,12 @@ public class SavingAccount extends Account {
     }
 
     public SavingAccount() {
+        System.out.println("Enter Data for Saving Accounts");
+        setAccountTitle("Aneeq");
+        setCnic("35201");
+        setAccountNumber(2345);
+        setBalance(700);
+        System.out.println("\nSaving Account Created\n");
         ++count;
     }
 

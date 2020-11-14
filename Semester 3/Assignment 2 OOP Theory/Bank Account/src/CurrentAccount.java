@@ -1,5 +1,6 @@
 public class CurrentAccount extends Account {
     private static double serviceFee;
+    private long accountNumber;
     private static int count = 0;
 
     public double getServiceFee() {
@@ -23,11 +24,32 @@ public class CurrentAccount extends Account {
     }
 
     public CurrentAccount() {
+
+        setAccountTitle("Aneeq");
+        setCnic("35201");
+        setAccountNumber(12345);
+        setBalance(560);
+
+        System.out.println("\nCurrent Account Created\n");
         ++count;
+    }
+
+    public void setAccountNumber(long accountNumber) {
+        do {
+            if (checkAccountNumber(accountNumber) == true) {
+                this.accountNumber = accountNumber;
+                break;
+            } else {
+                System.out.print("\nTry Again! You entered wrong account Number\nFirst digit should be 1: ");
+                accountNumber = input.nextLong();
+
+            }
+        } while (true);
     }
 
     public CurrentAccount(String cnic, long accountNumber, String accountTitle, double balance) {
 
+        System.out.println("Data for Current Account");
         setAccountTitle(accountTitle);
         setCnic(cnic);
         setAccountNumber(accountNumber);

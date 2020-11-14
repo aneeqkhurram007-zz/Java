@@ -16,6 +16,12 @@ public class Account {
     }
 
     public Account() {
+        System.out.println("Basic Account Credentials");
+        setAccountTitle("AneeqKhurram");
+        setCnic("35201");
+        setAccountNumber(123);
+        setBalance(500);
+
         ++count;
     }
 
@@ -67,16 +73,7 @@ public class Account {
     }
 
     public void setAccountNumber(long accountNumber) {
-        do {
-            if (checkAccountNumber(accountNumber) == true) {
-                this.accountNumber = accountNumber;
-                break;
-            } else {
-                System.out.print("\nTry Again! You entered wrong account Number\nFirst digit should be 1: ");
-                accountNumber = input.nextLong();
-
-            }
-        } while (true);
+        this.accountNumber = accountNumber;
     }
 
     public static boolean checkAccountNumber(long accountNumber) {
@@ -104,7 +101,7 @@ public class Account {
 
     public static boolean checkString(String accountTitle) {
 
-        return ((accountTitle != null) && (!accountTitle.equals("")) && (accountTitle.matches("^[a-zA-Z]*$"))
+        return ((accountTitle != null) && (accountTitle.charAt(0) != 32) && (accountTitle.matches("^[a-zA-Z]*$"))
                 && (accountTitle.charAt(0) >= 65 && accountTitle.charAt(0) <= 90));
     }
 
