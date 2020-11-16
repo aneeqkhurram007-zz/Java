@@ -13,24 +13,6 @@ public class SavingAccount extends Account {
 
     }
 
-    public void setAccountNumber(long accountNumber) {
-        do {
-            if (checkAccountNumber(accountNumber) == true) {
-                this.accountNumber = accountNumber;
-                break;
-            } else {
-                System.out.print("\nTry Again! You entered wrong account Number\nFirst digit should be 2: ");
-                accountNumber = input.nextLong();
-
-            }
-        } while (true);
-    }
-
-    public static boolean checkAccountNumber(long accountNumber) {
-        String s = String.valueOf(accountNumber);
-        return s.charAt(0) == '2';
-    }
-
     public double getMonthlyInterestRate() {
         return monthlyInterestRate;
     }
@@ -52,10 +34,7 @@ public class SavingAccount extends Account {
     }
 
     public SavingAccount() {
-        setAccountTitle("Aneeq");
-        setCnic("35201");
-        setAccountNumber(2345);
-        setBalance(700);
+
         ++count;
     }
 

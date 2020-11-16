@@ -1,39 +1,45 @@
 import java.util.*;
 
 public class AccountTest {
-    static Scanner input = new Scanner(System.in);;
-    static long accountNumber;
-    static String accountTitle;
-    static String cnic;
-    static double balance;
 
     public static void main(String[] args) {
-        int choice;
-        char option;
+        Scanner input = new Scanner(System.in);
         Account[] account = new Account[5];
         CurrentAccount[] curreAccount = new CurrentAccount[5];
         SavingAccount[] savingAccount = new SavingAccount[5];
 
         int i = 0, j = 0, k = 0;
 
-        do {
-            choice = display();
+        while (i < 5 && j < 5 && k < 5) {
+
+            System.out.println("\nWelcome to Bank Account Menu\n");
+            int choice;
+            System.out.println("1. Add Current Account");
+            System.out.println("2. Add Saving Account");
+            System.out.println("3. Deposit Money");
+            System.out.println("4. Withdraw Money");
+            System.out.println("5. Check Balance");
+            System.out.println("6. Exit");
+            System.out.print("Enter your choice: ");
+            choice = input.nextInt();
 
             switch (choice) {
                 case 1:
-                    entries();
-
+                    System.out.println(
+                            "\nMake sure: \nCnic must be a number\nName's first letter must be capital and must have only letters \nAccount Number must start with 1\nBalance must be greater than 0");
                     curreAccount[j] = new CurrentAccount();
-                    curreAccount[j].addAccount(cnic, accountTitle, balance, accountNumber, 5);
-                    curreAccount[j].checkBalance();
+                    curreAccount[j].addAccount("352198", "David", 700, 1234548, 5);
+                    curreAccount[j].details();
 
                     j++;
                     break;
                 case 2:
-                    entries();
+                    System.out.println(
+                            "\nMake sure: \nCnic must be a number\nName's first letter must be capital and must have only letters \nAccount Number must start with 2\nBalance must be greater than 0");
+
                     savingAccount[k] = new SavingAccount();
-                    savingAccount[k].addAccount(cnic, accountTitle, balance, accountNumber, 5);
-                    savingAccount[k].checkBalance();
+                    savingAccount[k].addAccount("3568947", "John", 800, 2354654, 2);
+                    savingAccount[k].details();
                     k++;
                     break;
                 case 3:
@@ -52,9 +58,9 @@ public class AccountTest {
                     break;
                 case 5:
                     curreAccount[j] = new CurrentAccount();
-                    curreAccount[j].checkBalance();
+                    curreAccount[j].details();
                     savingAccount[j] = new SavingAccount();
-                    savingAccount[k].checkBalance();
+                    savingAccount[k].details();
                     j++;
                     k++;
 
@@ -68,36 +74,9 @@ public class AccountTest {
                     break;
 
             }
-            System.out.println("Do you want to continue: ");
-            option = input.next().charAt(0);
-        } while (option == 'y');
+        }
+        input.close();
 
     }
 
-    public static void entries() {
-        System.out.println("Enter your name: ");
-        input.nextLine();
-        accountTitle = input.nextLine();
-        System.out.println("Enter you cnic: ");
-        cnic = input.nextLine();
-        System.out.println("Enter your Account Number: ");
-        accountNumber = input.nextLong();
-        System.out.println("Enter your balance: ");
-        balance = input.nextDouble();
-
-    }
-
-    public static int display() {
-        System.out.println("\nWelcome to Bank Account Menu\n");
-        int choice;
-        System.out.println("1. Add Current Account");
-        System.out.println("2. Add Saving Account");
-        System.out.println("3. Deposit Money");
-        System.out.println("4. Withdraw Money");
-        System.out.println("5. Check Balance");
-        System.out.println("6. Exit");
-        System.out.print("Enter your choice: ");
-        choice = input.nextInt();
-        return choice;
-    }
 }
