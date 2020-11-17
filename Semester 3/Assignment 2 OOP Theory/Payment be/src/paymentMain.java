@@ -3,6 +3,8 @@ import java.util.*;
 public class paymentMain {
     public static void main(String[] args) {
 
+        String Cname = args[0];
+        System.out.println(Cname);
         Scanner input = new Scanner(System.in);
 
         System.out.println("\nCash:");
