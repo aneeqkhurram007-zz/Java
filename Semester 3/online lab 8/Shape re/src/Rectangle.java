@@ -2,19 +2,21 @@
  * Rectangle
  */
 public class Rectangle extends Shape {
-    private double width;
-    private double length;
+    double width;
+    double length;
+    int count;
 
     public double getWidth() {
-        return this.width;
+        return width;
     }
 
     public void setWidth(double width) {
         this.width = width;
+
     }
 
     public double getLength() {
-        return this.length;
+        return length;
     }
 
     public void setLength(double length) {
@@ -22,34 +24,31 @@ public class Rectangle extends Shape {
     }
 
     public Rectangle() {
-        setWidth(1.0);
-        setLength(1.0);
+        this.width = 1.0;
+        this.length = 1.0;
     }
 
     public Rectangle(double width, double length) {
-        setWidth(width);
-        setLength(length);
+        this.width = width;
+        this.length = length;
     }
 
     public Rectangle(String color, boolean filled, double width, double length) {
         super(color, filled);
-        setWidth(width);
-        setLength(length);
+        this.width = width;
+        this.length = length;
     }
 
-    @Override
     public double getArea() {
-        return getLength() * getWidth();
+        return this.length * this.width;
     }
 
-    @Override
     public double getPerimeter() {
-        return 2 * getLength() + 2 * getWidth();
+        return 2 * this.length + 2 * this.width;
     }
 
-    @Override
     public String toString() {
 
-        return " A rectangle with width = " + getWidth() + " and length = " + getLength() + super.toString();
+        return " A rectangle with width = " + this.width + " and length = " + this.length + super.toString();
     }
 }
