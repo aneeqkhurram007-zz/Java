@@ -4,7 +4,6 @@
 public class Rectangle extends Shape {
     double width;
     double length;
-    int count;
 
     public double getWidth() {
         return width;
