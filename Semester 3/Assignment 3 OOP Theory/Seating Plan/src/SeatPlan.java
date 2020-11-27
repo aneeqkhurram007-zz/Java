@@ -34,27 +34,7 @@ public class SeatPlan {
         for (int i = 0; i < 10; i++) {
             System.out.print((i) + "\t");
             for (int j = 0; j < 4; j++) {
-                switch (j) {
-                    case 0:
-
-                        System.out.print("A" + " ");
-                        break;
-                    case 1:
-                        System.out.print("B" + " ");
-
-                        break;
-                    case 2:
-                        System.out.print("C" + " ");
-
-                        break;
-                    case 3:
-                        System.out.print("D" + " ");
-
-                        break;
-
-                    default:
-                        break;
-                }
+                switchCases(j);
             }
             System.out.println();
         }
@@ -71,7 +51,7 @@ public class SeatPlan {
 
     }
 
-    public static ArrayList<Person> person(int v) {
+    private static ArrayList<Person> person(int v) {
         String Id = null;
         ArrayList<Person> person = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
@@ -109,7 +89,7 @@ public class SeatPlan {
 
         if (seatPlans.get(index).getPerson().get(indexSearch(id)).getCnic() == null) {
 
-            System.out.println("Yes You can register");
+            System.out.println("You can register");
             personRegister(id, index);
 
         } else {
@@ -118,7 +98,7 @@ public class SeatPlan {
 
     }
 
-    public static int indexSearch(String id) {
+    private static int indexSearch(String id) {
 
         switch (id.charAt(1)) {
             case 'A':
@@ -161,27 +141,7 @@ public class SeatPlan {
                 if (seatPlans.get(i).getPerson().get(j).getCnic() != null) {
                     System.out.print("X" + " ");
                 } else {
-                    switch (j) {
-                        case 0:
-
-                            System.out.print("A" + " ");
-                            break;
-                        case 1:
-                            System.out.print("B" + " ");
-
-                            break;
-                        case 2:
-                            System.out.print("C" + " ");
-
-                            break;
-                        case 3:
-                            System.out.print("D" + " ");
-
-                            break;
-
-                        default:
-                            break;
-                    }
+                    switchCases(j);
                 }
             }
             System.out.println();
@@ -195,27 +155,7 @@ public class SeatPlan {
                 if (seatPlans.get(i).getPerson().get(j).getCnic() == null) {
                     System.out.print("X" + " ");
                 } else {
-                    switch (j) {
-                        case 0:
-
-                            System.out.print("A" + " ");
-                            break;
-                        case 1:
-                            System.out.print("B" + " ");
-
-                            break;
-                        case 2:
-                            System.out.print("C" + " ");
-
-                            break;
-                        case 3:
-                            System.out.print("D" + " ");
-
-                            break;
-
-                        default:
-                            break;
-                    }
+                    switchCases(j);
                 }
             }
             System.out.println();
@@ -231,8 +171,9 @@ public class SeatPlan {
 
     }
 
-    public static void personRegister(String id, int index) throws NumberFormatException, IOException {
+    private static void personRegister(String id, int index) throws NumberFormatException, IOException {
 
+        // Name With Validation
         String name;
 
         System.out.print("Enter your name : ");
@@ -244,6 +185,7 @@ public class SeatPlan {
 
         }
 
+        // Cnic With Validation
         System.out.print("Enter your cnic: ");
         String cnic = input.readLine();
         cnic = checkCnic(cnic);
@@ -253,9 +195,11 @@ public class SeatPlan {
             cnic = input.readLine();
         }
 
+        // Date Of Travel
         System.out.println("Enter your date of travel (YYYY-MM-DD)");
         LocalDate dateOfTravel = LocalDate.of(dateInput.nextInt(), dateInput.nextInt(), dateInput.nextInt());
 
+        // Source and Destination Selection
         int choice;
         String sourceAirport = null;
         String destinAirport = null;
@@ -283,6 +227,7 @@ public class SeatPlan {
             }
         } while (choice != 1 && choice != 2);
 
+        // Ticket Choice
         String wayOfTravel = null;
 
         System.out.println("Choose your ticket type");
@@ -305,14 +250,17 @@ public class SeatPlan {
             }
         } while (choice != 1 && choice != 2);
 
+        // Date Of Booking
+
         LocalDateTime dateOfBooking = LocalDateTime.now();
 
+        // addPerson method in Person Class
         seatPlans.get(index).getPerson().get(indexSearch(id)).addPerson(name, cnic, dateOfTravel, sourceAirport,
                 destinAirport, wayOfTravel, dateOfBooking);
 
     }
 
-    public static String checkCnic(String cnic) throws IOException {
+    private static String checkCnic(String cnic) throws IOException {
 
         int flag;
         do {
@@ -340,4 +288,27 @@ public class SeatPlan {
         return cnic;
     }
 
+    private static void switchCases(int j) {
+        switch (j) {
+            case 0:
+
+                System.out.print("A" + " ");
+                break;
+            case 1:
+                System.out.print("B" + " ");
+
+                break;
+            case 2:
+                System.out.print("C" + " ");
+
+                break;
+            case 3:
+                System.out.print("D" + " ");
+
+                break;
+
+            default:
+                break;
+        }
+    }
 }
