@@ -108,9 +108,9 @@ public class Person {
 
     @Override
     public String toString() {
-        return "\tPerson Id = " + Id + "\n Name = " + name + "\n Cnic = " + cnic + "\n Date of Booking = "
-                + dateOfBooking + "\n Date of Travel = " + dateOfTravel + "\n Destination = " + destinAirport
-                + "\n Source = " + sourceAirport + "\n Ticket = " + wayOfTravel;
+        return "\tPerson Id = " + Id + "\n Name = " + name + "\n Cnic = " + cnic + "\n Date of Travel = " + dateOfTravel
+                + "\n Date of Booking = " + dateOfBooking + "\n Source = " + sourceAirport + "\n Destination = "
+                + destinAirport + "\n Ticket = " + wayOfTravel;
     }
 
 }
