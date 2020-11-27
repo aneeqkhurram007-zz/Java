@@ -1,6 +1,5 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.*;
 
 public class Person {
     private String name;
@@ -11,12 +10,9 @@ public class Person {
     private String wayOfTravel;
     private LocalDateTime dateOfBooking;
     private String Id;
-    private Scanner input = new Scanner(System.in);
 
-    public Person(String name, String cnic, String Id) {
-        setName(name);
-        setCnic(cnic);
-        setId(Id);
+    public Person(String id) {
+        setId(id);
     }
 
     public void addPerson(String name, String cnic, LocalDate dateOfTravel, String sourceAirport, String destinAirport,
@@ -40,10 +36,6 @@ public class Person {
         setDestinAirport(null);
         setWayOfTravel(null);
         setDateOfBooking(null);
-    }
-
-    public Person(String id) {
-        setId(id);
     }
 
     public String getName() {
