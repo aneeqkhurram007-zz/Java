@@ -1,10 +1,11 @@
+import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
 public class SeatPlan {
-    private static Scanner input = new Scanner(System.in);
-
+    private static Scanner dateInput = new Scanner(System.in);
+    private static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     private static ArrayList<SeatPlan> seatPlans = new ArrayList<>();
     private ArrayList<Person> person;
     private int num;
@@ -127,7 +128,7 @@ public class SeatPlan {
         }
     }
 
-    public static void seatReservation(String id) {
+    public static void seatReservation(String id) throws NumberFormatException, IOException {
 
         char temp = id.charAt(0);
         int index = Integer.parseInt(String.valueOf(temp));
@@ -135,7 +136,6 @@ public class SeatPlan {
         if (seatPlans.get(index).getPerson().get(indexSearch(id)).getCnic() == null) {
 
             System.out.println("Yes You can register");
-            // seatPlans.get(index).getPerson().get(indexSearch(id)).setCnic("35201");
             personRegister(id, index);
 
         } else {
@@ -160,72 +160,82 @@ public class SeatPlan {
 
     }
 
-    public static void personRegister(String id, int index) {
-        System.out.print("Enter your name : ");
-        String name = input.nextLine();
-        while (!(name.matches("^[a-zA-Z]*$"))) {
-            System.err.println("Try Again. Name can have only alphabets.");
-            name = input.nextLine();
-            if (!(name.charAt(0) >= 65 && name.charAt(0) <= 90)) {
-                System.err.println("First Letter should be capital.");
-                name = input.nextLine();
+    public static String checkCnic(String cnic) throws IOException {
+
+        int flag;
+        do {
+
+            flag = 0;
+
+            for (int i = 0; i < seatPlans.size(); i++) {
+                for (int j = 0; j < seatPlans.get(i).getPerson().size(); j++) {
+
+                    if (cnic.equals(seatPlans.get(i).getPerson().get(j).getCnic())) {
+                        flag = 1;
+                        break;
+                    }
+                }
+                if (flag == 1) {
+                    break;
+                }
             }
+            if (flag == 1) {
+                System.out.println("Two persons cannot have same cnic. ");
+                System.out.print("Try Again: ");
+                cnic = input.readLine();
+            }
+        } while (flag == 1);
+        return cnic;
+    }
+
+    public static void personRegister(String id, int index) throws NumberFormatException, IOException {
+
+        String name;
+
+        System.out.print("Enter your name : ");
+
+        name = input.readLine();
+        while (!(name.matches("^[a-zA-Z]*$") && name.charAt(0) >= 65 && name.charAt(0) <= 90)) {
+            System.err.println("Try Again. Name can have only alphabets and First Letter should be capital.");
+            name = input.readLine();
 
         }
 
         System.out.print("Enter your cnic: ");
-        String cnic = input.nextLine();
+        String cnic = input.readLine();
+        cnic = checkCnic(cnic);
+
         while (!cnic.matches("[0-9]+")) {
             System.err.println("Try Again. Cnic must be a number.");
-            cnic = input.nextLine();
+            cnic = input.readLine();
         }
 
         System.out.println("Enter your date of travel (YYYY-MM-DD)");
-        LocalDate dateOfTravel = LocalDate.of(input.nextInt(), input.nextInt(), input.nextInt());
+        LocalDate dateOfTravel = LocalDate.of(dateInput.nextInt(), dateInput.nextInt(), dateInput.nextInt());
 
         int choice;
         String sourceAirport = null;
+        String destinAirport = null;
 
         System.out.println("Choose your source Airport");
         System.out.println("Press 1 for LHR");
         System.out.println("Press 2 for KHI");
         do {
-            choice = input.nextInt();
+            choice = Integer.parseInt(input.readLine());
 
             switch (choice) {
                 case 1:
                     sourceAirport = "Lahore";
+                    destinAirport = "Karachi";
                     break;
                 case 2:
                     sourceAirport = "Karachi";
-                    break;
-                default:
-                    System.out.println("Invalid Input");
-                    System.out.print("Try Again: ");
-
-                    break;
-            }
-        } while (choice != 1 && choice != 2);
-
-        String destinAirport = null;
-
-        System.out.println("Choose your destin Airport");
-        System.out.println("Press 1 for LHR");
-        System.out.println("Press 2 for KHI");
-
-        do {
-            choice = input.nextInt();
-
-            switch (choice) {
-                case 1:
                     destinAirport = "Lahore";
                     break;
-                case 2:
-                    destinAirport = "Karachi";
-                    break;
                 default:
                     System.out.println("Invalid Input");
                     System.out.print("Try Again: ");
+
                     break;
             }
         } while (choice != 1 && choice != 2);
@@ -236,7 +246,7 @@ public class SeatPlan {
         System.out.println("Press 1 for One-Way");
         System.out.println("Press 2 for Return");
         do {
-            choice = input.nextInt();
+            choice = Integer.parseInt(input.readLine());
 
             switch (choice) {
                 case 1:
@@ -257,10 +267,6 @@ public class SeatPlan {
         seatPlans.get(index).getPerson().get(indexSearch(id)).addPerson(name, cnic, dateOfTravel, sourceAirport,
                 destinAirport, wayOfTravel, dateOfBooking);
 
-        // System.out.println("Your Booking");
-
-        // System.out.println(seatPlans.get(index).getPerson().get(indexSearch(id)));
-
     }
 
     public static void SeatPlans() {
@@ -269,14 +275,7 @@ public class SeatPlan {
 
             seatPlans.add(new SeatPlan(person(i), i));
 
-            /*
-             * System.out.print(seatPlans.get(i).getNum() + "\t");
-             * 
-             * for (Person person : person(i)) { System.out.print(person.getId().charAt(1) +
-             * " "); } System.out.println();
-             */
         }
-        // seatPlans = seatPlansL;
 
     }
 
