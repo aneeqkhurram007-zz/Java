@@ -179,7 +179,7 @@ public class SeatPlan {
         System.out.print("Enter your name : ");
 
         name = input.readLine();
-        while (!(name.matches("^[a-zA-Z]*$") && name.charAt(0) >= 65 && name.charAt(0) <= 90)) {
+        while (!(name.matches("^[a-zA-Z ]*$") && name.charAt(0) >= 65 && name.charAt(0) <= 90 )) {
             System.err.println("Try Again. Name can have only alphabets and First Letter should be capital.");
             name = input.readLine();
 
