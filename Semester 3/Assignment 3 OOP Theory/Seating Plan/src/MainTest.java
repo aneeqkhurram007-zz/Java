@@ -30,9 +30,13 @@ public class MainTest {
                     SeatPlan.seatCancellation(input.nextLine());
                     break;
                 case 'd':
+                    System.out.println("Available Seats: ");
+                    SeatPlan.availableSeats();
 
                     break;
                 case 'e':
+                    System.out.println("Reserved Seats: ");
+                    SeatPlan.reservedSeats();
 
                     break;
                 case 'f':

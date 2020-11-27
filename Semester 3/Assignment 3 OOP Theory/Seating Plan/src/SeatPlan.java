@@ -29,6 +29,74 @@ public class SeatPlan {
         this.num = num;
     }
 
+    public static void availableSeats() {
+        for (int i = 0; i < seatPlans.size(); i++) {
+            System.out.print(i + "\t");
+            for (int j = 0; j < 4; j++) {
+                if (seatPlans.get(i).getPerson().get(j).getCnic() != null) {
+                    System.out.print("X" + " ");
+                } else {
+                    switch (j) {
+                        case 0:
+
+                            System.out.print("A" + " ");
+                            break;
+                        case 1:
+                            System.out.print("B" + " ");
+
+                            break;
+                        case 2:
+                            System.out.print("C" + " ");
+
+                            break;
+                        case 3:
+                            System.out.print("D" + " ");
+
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void reservedSeats() {
+        for (int i = 0; i < seatPlans.size(); i++) {
+            System.out.print(i + "\t");
+            for (int j = 0; j < 4; j++) {
+                if (seatPlans.get(i).getPerson().get(j).getCnic() == null) {
+                    System.out.print("X" + " ");
+                } else {
+                    switch (j) {
+                        case 0:
+
+                            System.out.print("A" + " ");
+                            break;
+                        case 1:
+                            System.out.print("B" + " ");
+
+                            break;
+                        case 2:
+                            System.out.print("C" + " ");
+
+                            break;
+                        case 3:
+                            System.out.print("D" + " ");
+
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+            }
+            System.out.println();
+        }
+    }
+
     public static void searchReservation(String id) {
 
         char temp = id.charAt(0);
