@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.*;
 
 public class Person {
     private String name;
@@ -10,6 +11,7 @@ public class Person {
     private String wayOfTravel;
     private LocalDateTime dateOfBooking;
     private String Id;
+    private Scanner input = new Scanner(System.in);
 
     public Person(String name, String cnic, String Id) {
         setName(name);
@@ -49,15 +51,19 @@ public class Person {
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public String getCnic() {
+
         return cnic;
     }
 
     public void setCnic(String cnic) {
+
         this.cnic = cnic;
+
     }
 
     public LocalDate getDateOfTravel() {
@@ -110,9 +116,9 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person [Id=" + Id + ", cnic=" + cnic + ", dateOfBooking=" + dateOfBooking + ", dateOfTravel="
-                + dateOfTravel + ", destinAirport=" + destinAirport + ", name=" + name + ", sourceAirport="
-                + sourceAirport + ", wayOfTravel=" + wayOfTravel + "]";
+        return "\tPerson Id = " + Id + "\n Name = " + name + "\n Cnic = " + cnic + "\n Date of Booking = "
+                + dateOfBooking + "\n Date of Travel = " + dateOfTravel + "\n Destination = " + destinAirport
+                + "\n Source = " + sourceAirport + "\n Ticket = " + wayOfTravel;
     }
 
 }
