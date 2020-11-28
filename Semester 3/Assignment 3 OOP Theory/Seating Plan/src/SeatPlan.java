@@ -79,11 +79,11 @@ public class SeatPlan {
 
         if (seatPlans.get(index).getPerson().get(indexSearch(id)).getCnic() == null) {
 
-            System.out.println("You can register");
+            System.out.println("\nYou can register");
             personRegister(id, index);
 
         } else {
-            System.out.println("Already Registered");
+            System.out.println("\nAlready Registered");
         }
 
     }
@@ -115,11 +115,11 @@ public class SeatPlan {
 
         if (seatPlans.get(index).getPerson().get(indexSearch(id)).getCnic() == null) {
 
-            System.out.println("Already empty");
+            System.out.println("\nAlready empty");
 
         } else {
             seatPlans.get(index).getPerson().get(indexSearch(id)).setNull();
-            System.out.println("Seat has been cancelled");
+            System.out.println("\nSeat has been cancelled");
         }
 
     }
@@ -166,17 +166,17 @@ public class SeatPlan {
         // Name With Validation
         String name;
 
-        System.out.print("Enter your name : ");
+        System.out.print("\nEnter your name : ");
 
         name = input.readLine();
         while (!(name.matches("^[a-zA-Z ]*$") && name.charAt(0) >= 65 && name.charAt(0) <= 90)) {
-            System.err.println("Try Again. Name can have only alphabets and First Letter should be capital.");
+            System.err.println("\nTry Again. Name can have only alphabets\nFirst Letter should be capital.");
             name = input.readLine();
 
         }
 
         // Cnic With Validation
-        System.out.print("Enter your cnic: ");
+        System.out.print("\nEnter your cnic: ");
         String cnic = input.readLine();
         cnic = checkCnic(cnic);
 
@@ -186,7 +186,7 @@ public class SeatPlan {
         }
 
         // Date Of Travel
-        System.out.println("Enter your date of travel (YYYY-MM-DD)");
+        System.out.println("\nEnter your date of travel (YYYY-MM-DD)");
         LocalDate dateOfTravel = LocalDate.of(dateInput.nextInt(), dateInput.nextInt(), dateInput.nextInt());
 
         // Source and Destination Selection
@@ -194,7 +194,7 @@ public class SeatPlan {
         String sourceAirport = null;
         String destinAirport = null;
 
-        System.out.println("Choose your source Airport");
+        System.out.println("\nChoose your source Airport");
         System.out.println("Press 1 for LHR");
         System.out.println("Press 2 for KHI");
         do {
@@ -220,7 +220,7 @@ public class SeatPlan {
         // Ticket Choice
         String wayOfTravel = null;
 
-        System.out.println("Choose your ticket type");
+        System.out.println("\nChoose your ticket type");
         System.out.println("Press 1 for One-Way");
         System.out.println("Press 2 for Return");
         do {

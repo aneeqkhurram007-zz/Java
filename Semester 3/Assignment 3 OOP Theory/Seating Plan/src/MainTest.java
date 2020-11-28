@@ -12,7 +12,7 @@ public class MainTest {
 
         do {
             display();
-            System.out.print("Enter your choice: ");
+            System.out.print("\nEnter your choice: ");
             choice = input.nextLine().charAt(0);
 
             switch (choice) {
@@ -21,27 +21,27 @@ public class MainTest {
                     break;
                 case 'b':
 
-                    System.out.print("Enter seat number for reservation: ");
+                    System.out.print("\nEnter seat number for reservation: ");
                     SeatPlan.seatReservation(input.nextLine());
                     break;
                 case 'c':
 
-                    System.out.print("Enter seat number for cancellation: ");
+                    System.out.print("\nEnter seat number for cancellation: ");
                     SeatPlan.seatCancellation(input.nextLine());
                     break;
                 case 'd':
-                    System.out.println("Available Seats: ");
+                    System.out.println("\nAvailable Seats: ");
                     SeatPlan.availableSeats();
 
                     break;
                 case 'e':
-                    System.out.println("Reserved Seats: ");
+                    System.out.println("\nReserved Seats: ");
                     SeatPlan.reservedSeats();
 
                     break;
                 case 'f':
 
-                    System.out.print("Search for Reservation: ");
+                    System.out.print("\nSearch for Reservation: ");
                     SeatPlan.searchReservation(input.nextLine());
 
                     break;
@@ -55,7 +55,7 @@ public class MainTest {
                     break;
             }
 
-            System.out.print("Do you want to continue (y/n): ");
+            System.out.print("\nDo you want to continue (y/n): ");
             restart = input.nextLine().charAt(0);
 
         } while (restart == 'y' || restart == 'Y');
