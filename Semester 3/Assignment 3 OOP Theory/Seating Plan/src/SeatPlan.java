@@ -7,11 +7,9 @@ public class SeatPlan {
     private static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     private static ArrayList<SeatPlan> seatPlans = new ArrayList<>();
     private ArrayList<Person> person;
-    private int num;
 
-    public SeatPlan(ArrayList<Person> person, int num) {
+    public SeatPlan(ArrayList<Person> person) {
         setPerson(person);
-        setNum(num);
     }
 
     public ArrayList<Person> getPerson() {
@@ -20,14 +18,6 @@ public class SeatPlan {
 
     public void setPerson(ArrayList<Person> person) {
         this.person = person;
-    }
-
-    public int getNum() {
-        return num;
-    }
-
-    public void setNum(int num) {
-        this.num = num;
     }
 
     public static void showSeatPlan() {
@@ -45,7 +35,7 @@ public class SeatPlan {
 
         for (int i = 0; i < 10; i++) {
 
-            seatPlans.add(new SeatPlan(person(i), i));
+            seatPlans.add(new SeatPlan(person(i)));
 
         }
 
@@ -179,7 +169,7 @@ public class SeatPlan {
         System.out.print("Enter your name : ");
 
         name = input.readLine();
-        while (!(name.matches("^[a-zA-Z ]*$") && name.charAt(0) >= 65 && name.charAt(0) <= 90 )) {
+        while (!(name.matches("^[a-zA-Z ]*$") && name.charAt(0) >= 65 && name.charAt(0) <= 90)) {
             System.err.println("Try Again. Name can have only alphabets and First Letter should be capital.");
             name = input.readLine();
 
