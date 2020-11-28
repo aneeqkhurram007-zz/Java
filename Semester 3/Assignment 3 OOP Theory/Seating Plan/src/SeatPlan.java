@@ -3,9 +3,9 @@ import java.time.*;
 import java.util.*;
 
 public class SeatPlan {
-    private static Scanner dateInput = new Scanner(System.in);
-    private static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-    private static ArrayList<SeatPlan> seatPlans = new ArrayList<>();
+    private static final Scanner dateInput = new Scanner(System.in);
+    private static final BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+    private static final ArrayList<SeatPlan> seatPlans = new ArrayList<>();
     private ArrayList<Person> person;
 
     public SeatPlan(ArrayList<Person> person) {
@@ -64,9 +64,11 @@ public class SeatPlan {
                     break;
 
                 default:
+
                     break;
             }
-            person.add(new Person(Integer.toString(v) + Id));
+            String newS = Integer.toString(v);
+            person.add(new Person(newS + Id));
         }
 
         return person;
