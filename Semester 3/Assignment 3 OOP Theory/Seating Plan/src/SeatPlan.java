@@ -185,6 +185,8 @@ public class SeatPlan {
         while (!cnic.matches("[0-9]+")) {
             System.err.println("Try Again. Cnic must be a number.");
             cnic = input.readLine();
+            cnic = checkCnic(cnic);
+
         }
 
         // Date Of Travel
