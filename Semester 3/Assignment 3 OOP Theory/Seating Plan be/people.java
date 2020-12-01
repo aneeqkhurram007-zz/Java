@@ -1,14 +1,13 @@
 public class people {
 
-    String name;
+    String title;
     String passPort;
-    String dataOfBooking;
+    String BookingDate;
     String departureDate;
     String source;
     String destination;
-    String ticketType;
+    String ticket;
     String id;
-
 
     public people(String id) {
         this.id = id;
@@ -16,13 +15,8 @@ public class people {
 
     @Override
     public String toString() {
-        return "Name: " + name +
-                "\nId: " + id +
-                "\nPassport: " + passPort +
-                "\nDate Of Departure: " + departureDate +
-                "\nDate of Booking: " + dataOfBooking +
-                "\nSource Airport: " + source +
-                "\nDestination Airport: " + destination +
-                "\nTicket Type: " + ticketType;
+        return "title: " + title + "\nId: " + id + "\nPassport: " + passPort + "\nDate Of Departure: " + departureDate
+                + "\nDate of Booking: " + BookingDate + "\nSource Airport: " + source + "\nDestination Airport: "
+                + destination + "\nTicket Type: " + ticket;
     }
 }

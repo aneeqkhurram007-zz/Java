@@ -1,15 +1,15 @@
 import java.util.*;
 
 public class seatClass {
-    static ArrayList<seatClass> seatClasses = new ArrayList<>();
-    static Scanner scanner = new Scanner(System.in);
-    ArrayList<people> peopleArray;
+    static ArrayList<seatClass> seatsInPlane = new ArrayList<>();
+    static Scanner enter = new Scanner(System.in);
+    ArrayList<people> peoples;
 
     static {
         String id;
 
         for (int i = 0; i < 10; i++) {
-            ArrayList<people> peopleArrayList = new ArrayList<>();
+            ArrayList<people> peoplesList = new ArrayList<>();
 
             for (int j = 0; j < 4; j++) {
                 char newChar;
@@ -23,20 +23,20 @@ public class seatClass {
                     newChar = 'D';
                 }
                 id = Integer.toString(i + 1) + (newChar);
-                peopleArrayList.add(new people(id));
+                peoplesList.add(new people(id));
 
             }
-            seatClasses.add(new seatClass(peopleArrayList));
+            seatsInPlane.add(new seatClass(peoplesList));
         }
 
     }
 
     public seatClass(ArrayList<people> people) {
-        peopleArray = people;
+        peoples = people;
     }
 
-    public ArrayList<people> getPeopleArrayList() {
-        return peopleArray;
+    public ArrayList<people> getpeoplesList() {
+        return peoples;
     }
 
     public static void seatPlan() {
@@ -60,30 +60,29 @@ public class seatClass {
 
     public static void seatReserve() {
 
+        System.out.println("Enter seat number: ");
+        String seatNumber = enter.nextLine();
 
-        System.out.println("Enter your name: ");
-        String name = scanner.nextLine();
+        System.out.println("Enter your title: ");
+        String title = enter.nextLine();
 
         System.out.println("Enter your passport: ");
-        String passPort = scanner.nextLine();
+        String passPort = enter.nextLine();
 
         System.out.println("Enter date of booking: ");
-        String dataOfBooking = scanner.nextLine();
+        String BookingDate = enter.nextLine();
 
         System.out.println("Enter departure date: ");
-        String departureDate = scanner.nextLine();
+        String departureDate = enter.nextLine();
 
         System.out.println("Enter source Airport: ");
-        String source = scanner.nextLine();
+        String source = enter.nextLine();
 
         System.out.println("Enter destination Airport: ");
-        String destination = scanner.nextLine();
+        String destination = enter.nextLine();
 
         System.out.println("Enter ticket type: ");
-        String ticketType = scanner.nextLine();
-
-        System.out.println("Enter seat number: ");
-        String seatNumber = scanner.nextLine();
+        String ticket = enter.nextLine();
 
         int seatRow;
         if (seatNumber.charAt(1) == '0') {
@@ -92,25 +91,24 @@ public class seatClass {
             seatRow = Character.getNumericValue(seatNumber.charAt(0)) - 1;
         }
         for (int i = 0; i < 4; i++) {
-            if (seatClasses.get(seatRow).getPeopleArrayList().get(i).id.equals(seatNumber)) {
-                seatClasses.get(seatRow).getPeopleArrayList().get(i).name = name;
-                seatClasses.get(seatRow).getPeopleArrayList().get(i).passPort = passPort;
-                seatClasses.get(seatRow).getPeopleArrayList().get(i).dataOfBooking = dataOfBooking;
-                seatClasses.get(seatRow).getPeopleArrayList().get(i).departureDate = departureDate;
-                seatClasses.get(seatRow).getPeopleArrayList().get(i).source = source;
-                seatClasses.get(seatRow).getPeopleArrayList().get(i).destination = destination;
-                seatClasses.get(seatRow).getPeopleArrayList().get(i).ticketType = ticketType;
+            if (seatsInPlane.get(seatRow).getpeoplesList().get(i).id.equals(seatNumber)) {
+                seatsInPlane.get(seatRow).getpeoplesList().get(i).title = title;
+                seatsInPlane.get(seatRow).getpeoplesList().get(i).passPort = passPort;
+                seatsInPlane.get(seatRow).getpeoplesList().get(i).BookingDate = BookingDate;
+                seatsInPlane.get(seatRow).getpeoplesList().get(i).departureDate = departureDate;
+                seatsInPlane.get(seatRow).getpeoplesList().get(i).source = source;
+                seatsInPlane.get(seatRow).getpeoplesList().get(i).destination = destination;
+                seatsInPlane.get(seatRow).getpeoplesList().get(i).ticket = ticket;
 
-                System.out.println("Seat has been reserved");
+                System.out.println(seatsInPlane.get(seatRow).getpeoplesList().get(i));
             }
         }
-
 
     }
 
     public static void seatCancellation() {
         System.out.println("Enter seat number: ");
-        String seatNumber = scanner.nextLine();
+        String seatNumber = enter.nextLine();
 
         int seatRow;
         if (seatNumber.charAt(1) == '0') {
@@ -119,14 +117,14 @@ public class seatClass {
             seatRow = Character.getNumericValue(seatNumber.charAt(0)) - 1;
         }
         for (int i = 0; i < 4; i++) {
-            if (seatClasses.get(seatRow).getPeopleArrayList().get(i).id.equals(seatNumber)) {
-                seatClasses.get(seatRow).getPeopleArrayList().get(i).name = null;
-                seatClasses.get(seatRow).getPeopleArrayList().get(i).passPort = null;
-                seatClasses.get(seatRow).getPeopleArrayList().get(i).dataOfBooking = null;
-                seatClasses.get(seatRow).getPeopleArrayList().get(i).departureDate = null;
-                seatClasses.get(seatRow).getPeopleArrayList().get(i).source = null;
-                seatClasses.get(seatRow).getPeopleArrayList().get(i).destination = null;
-                seatClasses.get(seatRow).getPeopleArrayList().get(i).ticketType = null;
+            if (seatsInPlane.get(seatRow).getpeoplesList().get(i).id.equals(seatNumber)) {
+                seatsInPlane.get(seatRow).getpeoplesList().get(i).title = null;
+                seatsInPlane.get(seatRow).getpeoplesList().get(i).passPort = null;
+                seatsInPlane.get(seatRow).getpeoplesList().get(i).BookingDate = null;
+                seatsInPlane.get(seatRow).getpeoplesList().get(i).departureDate = null;
+                seatsInPlane.get(seatRow).getpeoplesList().get(i).source = null;
+                seatsInPlane.get(seatRow).getpeoplesList().get(i).destination = null;
+                seatsInPlane.get(seatRow).getpeoplesList().get(i).ticket = null;
 
                 System.out.println("Seat has been cancelled");
             }
@@ -138,7 +136,7 @@ public class seatClass {
         for (int i = 0; i < 10; i++) {
             System.out.print("\n" + (i + 1) + "  ");
             for (int j = 0; j < 4; j++) {
-                if (seatClasses.get(i).getPeopleArrayList().get(j).name == null) {
+                if (seatsInPlane.get(i).getpeoplesList().get(j).title == null) {
                     if (i == 9) {
                         if (j == 0) {
                             System.out.print("A ");
@@ -150,7 +148,7 @@ public class seatClass {
                             System.out.print("D ");
                         }
                     } else {
-                        System.out.print(seatClasses.get(i).getPeopleArrayList().get(j).id.charAt(1) + " ");
+                        System.out.print(seatsInPlane.get(i).getpeoplesList().get(j).id.charAt(1) + " ");
                     }
                 } else {
                     System.out.print("X" + " ");
@@ -163,8 +161,8 @@ public class seatClass {
         for (int i = 0; i < 10; i++) {
             System.out.print("\n" + (i + 1) + "  ");
             for (int j = 0; j < 4; j++) {
-                if (seatClasses.get(i).getPeopleArrayList().get(j).name != null) {
-                    System.out.print(seatClasses.get(i).getPeopleArrayList().get(j).id.charAt(1) + " ");
+                if (seatsInPlane.get(i).getpeoplesList().get(j).title != null) {
+                    System.out.print(seatsInPlane.get(i).getpeoplesList().get(j).id.charAt(1) + " ");
                 } else {
                     System.out.print("X" + " ");
                 }
@@ -174,7 +172,7 @@ public class seatClass {
 
     public static void searchSeat() {
         System.out.println("Enter seat number: ");
-        String seatNumber = scanner.nextLine();
+        String seatNumber = enter.nextLine();
 
         int seatRow;
         if (seatNumber.charAt(1) == '0') {
@@ -184,14 +182,12 @@ public class seatClass {
         }
 
         for (int i = 0; i < 4; i++) {
-            if (seatClasses.get(seatRow).getPeopleArrayList().get(i).id.equals(seatNumber)) {
-                if (seatClasses.get(seatRow).getPeopleArrayList().get(i).name != null) {
-                    System.out.println(seatClasses.get(seatRow).getPeopleArrayList().get(i));
+            if (seatsInPlane.get(seatRow).getpeoplesList().get(i).id.equals(seatNumber)) {
+                if (seatsInPlane.get(seatRow).getpeoplesList().get(i).title != null) {
+                    System.out.println(seatsInPlane.get(seatRow).getpeoplesList().get(i));
                 }
             }
         }
 
     }
 }
-
-
