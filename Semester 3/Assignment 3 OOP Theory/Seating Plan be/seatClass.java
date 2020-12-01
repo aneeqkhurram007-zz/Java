@@ -39,44 +39,7 @@ public class seatClass {
         return peopleArray;
     }
 
-    public static void main(String[] args) {
-        char option;
-        String option1;
-
-
-        do {
-            System.out.println("Press a for seat plan");
-            System.out.println("Press b for seat reservation");
-            System.out.println("Press c for seat cancellation");
-            System.out.println("Press d for available seats");
-            System.out.println("Press e for reserved seats");
-            System.out.println("Press f for search seat");
-            System.out.println("Enter your option: ");
-            option = scanner.nextLine().charAt(0);
-
-            if (option == 'a') {
-                seatClass.seatPlan();
-            } else if (option == 'b') {
-                seatClass.seatReserve();
-            } else if (option == 'c') {
-                seatClass.seatCancellation();
-            } else if (option == 'd') {
-                seatClass.seatsAvailable();
-            } else if (option == 'e') {
-                seatClass.seatsReserved();
-            } else if (option == 'f') {
-                seatClass.searchSeat();
-            }
-
-            System.out.println("\nDo you want to continue: ");
-            option1 = scanner.nextLine();
-
-        } while (option1.equals("y"));
-
-        scanner.close();
-    }
-
-    static void seatPlan() {
+    public static void seatPlan() {
         for (int i = 0; i < 10; i++) {
             System.out.print("\n" + (i + 1) + " ");
             for (int j = 0; j < 4; j++) {
@@ -95,7 +58,7 @@ public class seatClass {
 
     }
 
-    static void seatReserve() {
+    public static void seatReserve() {
 
 
         System.out.println("Enter your name: ");
@@ -145,7 +108,7 @@ public class seatClass {
 
     }
 
-    static void seatCancellation() {
+    public static void seatCancellation() {
         System.out.println("Enter seat number: ");
         String seatNumber = scanner.nextLine();
 
@@ -171,7 +134,7 @@ public class seatClass {
 
     }
 
-    static void seatsAvailable() {
+    public static void seatsAvailable() {
         for (int i = 0; i < 10; i++) {
             System.out.print("\n" + (i + 1) + "  ");
             for (int j = 0; j < 4; j++) {
@@ -196,7 +159,7 @@ public class seatClass {
         }
     }
 
-    static void seatsReserved() {
+    public static void seatsReserved() {
         for (int i = 0; i < 10; i++) {
             System.out.print("\n" + (i + 1) + "  ");
             for (int j = 0; j < 4; j++) {
@@ -209,7 +172,7 @@ public class seatClass {
         }
     }
 
-    static void searchSeat() {
+    public static void searchSeat() {
         System.out.println("Enter seat number: ");
         String seatNumber = scanner.nextLine();
 
@@ -232,31 +195,3 @@ public class seatClass {
 }
 
 
-class people {
-
-    String name;
-    String passPort;
-    String dataOfBooking;
-    String departureDate;
-    String source;
-    String destination;
-    String ticketType;
-    String id;
-
-
-    public people(String id) {
-        this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "Name: " + name +
-                "\nId: " + id +
-                "\nPassport: " + passPort +
-                "\nDate Of Departure: " + departureDate +
-                "\nDate of Booking: " + dataOfBooking +
-                "\nSource Airport: " + source +
-                "\nDestination Airport: " + destination +
-                "\nTicket Type: " + ticketType;
-    }
-}
