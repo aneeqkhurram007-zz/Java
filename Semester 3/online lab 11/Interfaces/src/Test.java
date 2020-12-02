@@ -1,9 +1,11 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Test {
     public static void main(String[] args) {
 
         ArrayList<Stats> stats = new ArrayList<>();
+
         // Rectangle
         stats.add(new Rectangle());
         stats.add(new Rectangle(5.0, 4.0));
@@ -17,10 +19,39 @@ public class Test {
         // Country
 
         stats.add(new CountryClass());
+
+        stats.add(new CountryClass("India", provinces(), states()));
+
+        stats.add(new CountryClass("Afghanistan", provinces(), states()));
+
+        for (Stats stats2 : stats) {
+            printStats(stats2);
+        }
+
     }
 
     static void printStats(Stats stats) {
         stats.computeArea();
         stats.reset();
+    }
+
+    static Integer[] provinces() {
+        Integer[] provinceStates = new Integer[3];
+        Random random = new Random();
+        provinceStates[0] = random.nextInt(1000);
+        provinceStates[1] = random.nextInt(1000);
+        provinceStates[2] = random.nextInt(1000);
+
+        return provinceStates;
+    }
+
+    static ArrayList<Integer> states() {
+        ArrayList<Integer> statesArea = new ArrayList<>();
+        Random random = new Random();
+        statesArea.add(random.nextInt(1000));
+        statesArea.add(random.nextInt(1000));
+        statesArea.add(random.nextInt(1000));
+
+        return statesArea;
     }
 }

@@ -25,6 +25,7 @@ public class Square extends Rectangle {
 
     @Override
     public String toString() {
-        return "Square with length" + getLength();
+        return "\n" + getClass().getSimpleName() + "\n" + "Square with sides = " + getLength() + " has an Area = "
+                + getArea();
     }
 }

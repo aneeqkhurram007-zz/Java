@@ -1,6 +1,6 @@
 public class Rectangle extends Shape {
-    private double width;
-    private double length;
+    private double width = 1.0;
+    private double length = 1.0;
 
     public Rectangle() {
     }
@@ -34,7 +34,8 @@ public class Rectangle extends Shape {
 
     @Override
     public String toString() {
-        return "Rectangle [length=" + length + ", width=" + width + "]";
+        return "\n" + getClass().getSimpleName() + "\n" + "Rectangle with length = " + getLength() + ", width=" + width
+                + " has an Area = " + getArea();
     }
 
     @Override
@@ -49,7 +50,8 @@ public class Rectangle extends Shape {
 
     @Override
     public void computeArea() {
-        System.out.println("Area of rectangle = " + getArea() + " " + units);
+        String output = toString() + " " + units;
+        System.out.println(output);
     }
 
     @Override

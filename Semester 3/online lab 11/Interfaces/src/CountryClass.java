@@ -15,7 +15,8 @@ public class CountryClass implements Stats {
             total += getProvincesArea()[i] + getStatesArea().get(i);
         }
 
-        System.out.println(getName() + " has a total area = " + total);
+        System.out.println(
+                "\n" + getClass().getSimpleName() + "\n" + getName() + " has a total area = " + total + " " + units);
 
     }
 
@@ -53,5 +54,11 @@ public class CountryClass implements Stats {
 
     public void setStatesArea(ArrayList<Integer> statesArea) {
         this.statesArea = statesArea;
+    }
+
+    public CountryClass(String name, Integer[] provincesArea, ArrayList<Integer> statesArea) {
+        setName(name);
+        setProvincesArea(provincesArea);
+        setStatesArea(statesArea);
     }
 }
