@@ -1,3 +1,5 @@
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -30,12 +32,12 @@ public class Test {
 
     }
 
-    static void printStats(Stats stats) {
+    static void printStats(@NotNull Stats stats) {
         stats.computeArea();
         stats.reset();
     }
 
-    static Integer[] provinces() {
+    static Integer @NotNull [] provinces() {
         Integer[] provinceStates = new Integer[3];
         Random random = new Random();
         provinceStates[0] = random.nextInt(1000);
@@ -45,7 +47,7 @@ public class Test {
         return provinceStates;
     }
 
-    static ArrayList<Integer> states() {
+    static @NotNull ArrayList<Integer> states() {
         ArrayList<Integer> statesArea = new ArrayList<>();
         Random random = new Random();
         statesArea.add(random.nextInt(1000));

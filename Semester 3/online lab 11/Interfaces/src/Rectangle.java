@@ -44,11 +44,6 @@ public class Rectangle extends Shape {
     }
 
     @Override
-    public double getPerimeter() {
-        return 2 * (getWidth() + getLength());
-    }
-
-    @Override
     public void computeArea() {
         String output = toString() + " " + units;
         System.out.println(output);

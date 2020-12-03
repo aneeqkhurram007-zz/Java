@@ -37,6 +37,4 @@ public abstract class Shape implements Stats {
 
     public abstract double getArea();
 
-    public abstract double getPerimeter();
-
 }
