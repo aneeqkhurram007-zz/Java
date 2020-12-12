@@ -23,13 +23,13 @@ public class Test {
                 switch (mobilePhone) {
                     case 1:
                         setValues();
-                        // System.out.println("Enter ram value : ");
+                        System.out.println("Enter ram value : ");
                         int ram = random.nextInt(8);
                         onlineStore.addPhone(battery, camera, osVersion, ram, price);
                         break;
                     case 2:
                         setValues();
-                        // System.out.println("Enter audio jack value: ");
+                        System.out.println("Enter audio jack value: ");
                         boolean audioJack = random.nextBoolean();
                         onlineStore.addPhone(battery, camera, osVersion, audioJack, price);
                         break;
@@ -51,14 +51,14 @@ public class Test {
     }
 
     public static void setValues() {
-        // System.out.println("Enter battery value : ");
+        System.out.println("Enter battery value : ");
         battery = random.nextInt(50);
-        // System.out.println("Enter camera value: ");
+        System.out.println("Enter camera value: ");
         camera = random.nextBoolean();
-        // System.out.println("Enter Os Version: ");
-        // input.nextLine();
+        System.out.println("Enter Os Version: ");
+        input.nextLine();
         osVersion = "Operating System";
-        // System.out.println("Enter price : ");
+        System.out.println("Enter price : ");
         price = random.nextInt(1000);
     }
 }

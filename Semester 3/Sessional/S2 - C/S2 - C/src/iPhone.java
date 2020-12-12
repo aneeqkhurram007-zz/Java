@@ -9,6 +9,6 @@ public class iPhone extends MobilePhone {
     @Override
     public void printInfo() {
         System.out.println("Battery : " + battery + "\nCamera : " + camera + "\nOS Version : " + osVersion
-                + "\nAudio Jack : " + audioJack);
+                + "\nAudio Jack : " + audioJack + "\nPrice : " + price);
     }
 }

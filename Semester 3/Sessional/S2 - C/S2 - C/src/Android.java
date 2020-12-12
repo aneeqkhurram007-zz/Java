@@ -8,7 +8,7 @@ public class Android extends MobilePhone {
 
     @Override
     public void printInfo() {
-        System.out.println(
-                "Battery : " + battery + "\nCamera : " + camera + "\nOS Version : " + osVersion + "\nRam : " + ram);
+        System.out.println("Battery : " + battery + "\nCamera : " + camera + "\nOS Version : " + osVersion + "\nRam : "
+                + ram + "\nPrice : " + price);
     }
 }
