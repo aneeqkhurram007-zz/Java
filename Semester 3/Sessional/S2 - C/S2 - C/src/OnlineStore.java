@@ -19,7 +19,6 @@ public class OnlineStore {
         if (track < 10) {
             mobilePhones.add(new Android(battery, camera, osVersion, ram, price));
         }
-        // mobilePhones[index] = new Android(battery, camera, osVersion, ram, price);
 
     }
 
@@ -28,15 +27,45 @@ public class OnlineStore {
         if (track < 10) {
             mobilePhones.add(new iPhone(battery, camera, osVersion, audioJack, price));
         }
-        // mobilePhones[index] = new iPhone(battery, camera, osVersion, audioJack,
-        // price);
     }
 
     public void topThree() {
 
-        for (int i = 0; i < track; i++) {
-            System.out.println("Mobile Phone " + (i + 1));
-            mobilePhones.get(i).printInfo();
+        int max1 = 0;
+        int max2 = 0;
+        int max3 = 0;
+
+        int index1 = 0;
+        int index2 = 0;
+
+        for (int j = 0; j < track; j++) {
+            if (max1 < mobilePhones.get(j).price) {
+                max1 = mobilePhones.get(j).price;
+                index1 = j;
+            }
         }
+        for (int i = 0; i < track; i++) {
+            if (i == index1) {
+                continue;
+            } else {
+                if (max2 < mobilePhones.get(i).price) {
+                    max2 = mobilePhones.get(i).price;
+                    index2 = i;
+                }
+            }
+        }
+        for (int i = 0; i < track; i++) {
+            if (i == index2 || i == index1) {
+                continue;
+            } else {
+                if (max3 < mobilePhones.get(i).price) {
+                    max3 = mobilePhones.get(i).price;
+                }
+            }
+        }
+        System.out.println("TOP 1 = " + max1);
+        System.out.println("TOP 2 = " + max2);
+        System.out.println("TOP 3 = " + max3);
+
     }
 }
