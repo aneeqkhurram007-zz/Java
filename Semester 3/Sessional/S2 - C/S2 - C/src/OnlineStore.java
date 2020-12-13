@@ -29,9 +29,7 @@ public class OnlineStore {
     }
 
     public void topThree() {
-        for (MobilePhone mobilePhone : mobilePhones) {
-            System.out.println("Original Price = " + mobilePhone.price);
-        }
+        System.out.println("\nOnline Store : " + onlineStore + "\n");
         MobilePhone mtemp;
         for (int i = 0; i < track; i++) {
             for (int j = i; j < track; j++) {
