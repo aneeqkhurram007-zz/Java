@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 public class Test {
 
@@ -19,7 +18,7 @@ public class Test {
         try {
             System.out.println("Dividing");
             double result = divide(5, 6);
-            System.out.printf("%.5f\n",result);
+            System.out.printf("%.5f\n", result);
 
         } catch (ExceptionA e) {
             e.printStackTrace();
