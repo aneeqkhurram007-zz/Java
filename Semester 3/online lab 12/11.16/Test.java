@@ -3,12 +3,13 @@ import java.util.Scanner;
 public class Test {
 
     public static void main(String[] args) throws ExceptionC {
+        String name = args[0];
+        System.out.println(name);
         try {
-            int num;
-            Scanner input = new Scanner(System.in);
-            num = input.nextInt();
-            input.close();
-            if (num < 0) {
+            int num = Integer.parseInt(args[1]);
+            System.out.println(num);
+            // input.close();
+            if (num <= 0) {
                 throw new ExceptionC("2 cannot be less than 0");
             }
         } catch (ExceptionA e) {
