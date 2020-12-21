@@ -1,10 +1,10 @@
-public class ExceptionB extends ExceptionA {
+public class ExceptionA extends Exception {
     /**
      *
      */
     private static final long serialVersionUID = 1L;
 
-    public ExceptionB(String message) {
+    public ExceptionA(String message) {
         super(message);
     }
 }
