@@ -1,7 +1,10 @@
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Test {
@@ -33,9 +36,18 @@ public class Test {
         }
         fos.close();
 
-        while (true) {
-            Employee employee = (Employee) fin.readObject();
-            System.out.println(employee.name + "\t" + employee.empId);
+        try {
+            while (true) {
+                Employee employee = (Employee) fin.readObject();
+                System.out.println(employee);
+
+            }
+        } catch (EOFException e) {
+            System.out.println("No more records");
+        } catch (IOException e) {
+            System.out.println("Error reading from file.");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class Not Found");
         }
 
     }
@@ -49,7 +61,9 @@ public class Test {
     }
 
     public static void addEmployee() {
-        Employee employee = new Employee();
+        Random random = new Random();
+        Employee employee = new Employee("Aneeq", random.nextInt(5), random.nextDouble());
+
         try {
             fos.writeObject(employee);
         } catch (Exception e) {
