@@ -1,0 +1,2 @@
+Hello, this the second question of terminal exam.
+Its weightage is 50%.
