@@ -10,7 +10,7 @@ public class Reverse {
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
         bufferedWriter.write("Aneeq Khurram");
-        // bufferedWriter.close();
+        bufferedWriter.close();
         BufferedReader bufferedReader = new BufferedReader(new FileReader("data.txt"));
 
         ArrayList<Character> characters = new ArrayList<>();
@@ -30,20 +30,15 @@ public class Reverse {
 
         Collections.reverse(characters);
         Iterator<Character> it = characters.iterator();
-        // String chString = String.valueOf(characters);
-        // bufferedWriter.write(chString);
 
-        // bufferedWriter.close();
-
-        // BufferedWriter printWriter = new BufferedWriter(fileWriter);
+        PrintWriter printWriter = new PrintWriter(fileWriter);
         System.out.println("Reverse Order");
         while (it.hasNext()) {
             Character ch = it.next();
             bufferedWriter.write(String.valueOf(ch));
             System.out.println(ch);
         }
-        bufferedWriter.close();
-        // printWriter.close();
+        printWriter.close();
 
     }
 
