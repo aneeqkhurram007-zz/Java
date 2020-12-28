@@ -6,16 +6,16 @@ import java.util.Iterator;
 public class Reverse {
 
     public static void main(String[] args) throws IOException {
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("data.txt"));
+        FileWriter fileWriter = new FileWriter("data.txt");
+        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        bufferedWriter.write("6 5 4 3 2 1");
-        bufferedWriter.close();
-
+        bufferedWriter.write("Aneeq Khurram");
+        // bufferedWriter.close();
         BufferedReader bufferedReader = new BufferedReader(new FileReader("data.txt"));
 
         ArrayList<Character> characters = new ArrayList<>();
         int i, count = 0;
-
+        System.out.println("Correct Order");
         do {
             i = bufferedReader.read();
             if (i != -1) {
@@ -30,16 +30,21 @@ public class Reverse {
 
         Collections.reverse(characters);
         Iterator<Character> it = characters.iterator();
+        // String chString = String.valueOf(characters);
+        // bufferedWriter.write(chString);
 
-        PrintWriter printWriter = new PrintWriter(new FileWriter("data.txt"));
+        // bufferedWriter.close();
 
+        // BufferedWriter printWriter = new BufferedWriter(fileWriter);
+        System.out.println("Reverse Order");
         while (it.hasNext()) {
             Character ch = it.next();
-            printWriter.write(String.valueOf(ch));
+            bufferedWriter.write(String.valueOf(ch));
             System.out.println(ch);
         }
-        printWriter.flush();
-        printWriter.close();
+        bufferedWriter.close();
+        // printWriter.close();
+
     }
 
 }
