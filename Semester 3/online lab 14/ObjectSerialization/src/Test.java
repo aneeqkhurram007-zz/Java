@@ -16,6 +16,7 @@ public class Test {
     public static void main(String[] args) throws Exception {
         int choice;
         fos = new ObjectOutputStream(new FileOutputStream("data.ser"));
+
         fin = new ObjectInputStream(Files.newInputStream(Paths.get("data.ser")));
 
         while ((choice = menu()) != 4) {
@@ -52,8 +53,8 @@ public class Test {
     }
 
     public static void addEmployee() throws IOException {
-        Random random = new Random();
-        Employee employee = new Employee("Aneeq", random.nextInt(5), random.nextDouble());
+        System.out.println("Name\tid\tIncome");
+        Employee employee = new Employee(input.next(), input.nextInt(), input.nextDouble());
 
         try {
 
