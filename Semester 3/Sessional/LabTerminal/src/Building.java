@@ -47,9 +47,11 @@ public class Building {
     }
 
     public void saveInformation(Building b) throws Exception {
-        PrintWriter writer = new PrintWriter(new FileWriter("data.txt", true));
-        writer.println("House#  ResName  Month  PaidStatus  HouseType");
-        writer.println(b);
+        BufferedWriter writer = new BufferedWriter(new FileWriter("data.txt", true));
+        writer.write("House#  ResName  Month  PaidStatus  HouseType");
+        writer.newLine();
+        writer.write(b.toString());
+        writer.newLine();
         writer.close();
     }
 
@@ -57,10 +59,12 @@ public class Building {
         try {
             Scanner reader = new Scanner(new FileReader("data.txt"));
             while (reader.hasNext()) {
-                String s;
-                s = reader.next();
-                if (s.equals(HouseNum)) {
-                    System.out.println(b);
+                String sub = reader.next();
+
+                if (sub.equals(HouseNum)) {
+                    System.out.print(sub);
+                    System.out.println(reader.nextLine());
+
                 }
             }
             System.out.println("No more records found");

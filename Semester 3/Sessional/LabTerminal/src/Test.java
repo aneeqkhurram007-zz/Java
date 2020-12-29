@@ -9,20 +9,24 @@ public class Test {
             switch (choice) {
                 case 1:
                     House h = new House();
-                    System.out.println("House#  ResidentName  Month  PaidStatus  HouseType");
-                    h.input(input.next(), input.next(), input.nextInt(), input.nextBoolean(), input.next());
-                    switch (subMenu()) {
-                        case 1:
-                            h.saveInformation(h);
-                            break;
-                        case 2:
-                            System.out.println("Enter house number. ");
+                    int sub;
+                    while ((sub = subMenu()) != 3) {
+                        switch (sub) {
+                            case 1:
+                                System.out.println("House#  ResidentName  Month  PaidStatus  HosueType");
+                                h.input(input.next(), input.next(), input.nextInt(), input.nextBoolean(), "House");
 
-                            h.searchInformation(input.next(), h);
-                            break;
-                        default:
-                            System.out.println("Invalid Choice");
-                            break;
+                                h.saveInformation(h);
+                                break;
+                            case 2:
+                                System.out.println("Enter house number. ");
+
+                                h.searchInformation(input.next(), h);
+                                break;
+                            default:
+                                System.out.println("Invalid Choice");
+                                break;
+                        }
                     }
                     break;
                 case 2:
@@ -30,22 +34,25 @@ public class Test {
                     System.out.println("With lift or without lift True/False");
                     Boolean lift = input.nextBoolean();
 
-                    System.out.println("House#  ResidentName  Month  PaidStatus  HouseType");
+                    while ((sub = subMenu()) != 3) {
+                        switch (sub) {
+                            case 1:
+                                System.out.println("House#  ResidentName  Month  PaidStatus  HouseType");
+                                a.input(input.next(), input.next(), input.nextInt(), input.nextBoolean(), "Apartment");
 
-                    a.input(input.next(), input.next(), input.nextInt(), input.nextBoolean(), input.next());
-                    switch (subMenu()) {
-                        case 1:
-                            a.saveInformation(a);
-                            break;
-                        case 2:
-                            System.out.println("Enter house number. ");
+                                a.saveInformation(a);
+                                break;
+                            case 2:
+                                System.out.println("Enter house number. ");
 
-                            a.searchInformation(input.next(), a);
-                            break;
-                        default:
-                            System.out.println("Invalid Choice");
-                            break;
+                                a.searchInformation(input.next(), a);
+                                break;
+                            default:
+                                System.out.println("Invalid Choice");
+                                break;
+                        }
                     }
+
                     break;
                 default:
                     System.out.println("Invalid Choice");
@@ -68,6 +75,7 @@ public class Test {
     public static int subMenu() {
         System.out.println("Press 1 for adding data");
         System.out.println("Press 2 for searching data");
+        System.out.println("Press 3 for Exit");
         System.out.println("\nEnter your choice: ");
         return input.nextInt();
     }

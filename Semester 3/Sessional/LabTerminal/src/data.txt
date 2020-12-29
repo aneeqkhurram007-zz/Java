@@ -1,1 +1,6 @@
-
+House#  ResName  Month  PaidStatus  HouseType
+H#18	Aneeq	15		true		house
+House#  ResName  Month  PaidStatus  HouseType
+H#17	Sheikh	11		false		house
+House#  ResName  Month  PaidStatus  HouseType
+H#20	Sheikh	10		false		apart
