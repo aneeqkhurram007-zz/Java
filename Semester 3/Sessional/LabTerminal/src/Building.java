@@ -33,7 +33,7 @@ public class Building {
     }
 
     public double calculateTotalBill(int numOfBuildings, int month) {
-        return numOfBuildings * month;
+        return numOfBuildings * 1500;
     }
 
     public void input(String houseNum, String resName, int paymentMonth, boolean paidStatus, String houseType) {

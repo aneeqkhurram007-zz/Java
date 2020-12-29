@@ -16,7 +16,9 @@ public class Test {
                             h.saveInformation(h);
                             break;
                         case 2:
-                            h.searchInformation("H#17", h);
+                            System.out.println("Enter house number. ");
+
+                            h.searchInformation(input.next(), h);
                             break;
                         default:
                             System.out.println("Invalid Choice");
@@ -25,14 +27,20 @@ public class Test {
                     break;
                 case 2:
                     Apartment a = new Apartment();
+                    System.out.println("With lift or without lift True/False");
+                    Boolean lift = input.nextBoolean();
+
                     System.out.println("House#  ResidentName  Month  PaidStatus  HouseType");
+
                     a.input(input.next(), input.next(), input.nextInt(), input.nextBoolean(), input.next());
                     switch (subMenu()) {
                         case 1:
                             a.saveInformation(a);
                             break;
                         case 2:
-                            a.searchInformation("H#17", a);
+                            System.out.println("Enter house number. ");
+
+                            a.searchInformation(input.next(), a);
                             break;
                         default:
                             System.out.println("Invalid Choice");
