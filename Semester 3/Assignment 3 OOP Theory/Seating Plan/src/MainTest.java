@@ -1,9 +1,8 @@
-import java.io.IOException;
 import java.util.*;
 
 public class MainTest {
 
-    public static void main(String[] args) throws NumberFormatException, IOException {
+    public static void main(String[] args) throws Exception {
         Scanner input = new Scanner(System.in);
         char restart;
         char choice;

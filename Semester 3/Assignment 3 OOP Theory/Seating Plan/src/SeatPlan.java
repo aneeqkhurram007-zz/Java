@@ -154,16 +154,36 @@ public class SeatPlan {
         }
     }
 
-    public static void searchReservation(String id) {
+    public static void searchReservation(String id) throws Exception {
 
-        char temp = id.charAt(0);
-        int index = Integer.parseInt(String.valueOf(temp));
+        try {
+            ObjectInputStream reader = new ObjectInputStream(new FileInputStream("data.ser"));
 
-        System.out.println(seatPlans.get(index).getPerson().get(indexSearch(id)));
+            while (true) {
+                Person person = (Person) reader.readObject();
+                for (int i = 0; i < 4; i++) {
+                    if (person.getId().equals(id)) {
+                        System.out.println(person);
+
+                    }
+                }
+            }
+        } catch (EOFException e) {
+            System.out.println("No more records found.");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        // reader.close();
+        // char temp = id.charAt(0);
+        // int index = Integer.parseInt(String.valueOf(temp));
+
+        // System.out.println(seatPlan.get(index).getPerson().get(indexSearch(id)));
 
     }
 
     private static void personRegister(String id, int index) throws NumberFormatException, IOException {
+
+        ObjectOutputStream writer = new ObjectOutputStream(new FileOutputStream("data.ser", true));
 
         // Name With Validation
         String name;
@@ -252,6 +272,16 @@ public class SeatPlan {
         seatPlans.get(index).getPerson().get(indexSearch(id)).addPerson(name, cnic, dateOfTravel, sourceAirport,
                 destinAirport, wayOfTravel, dateOfBooking);
 
+        try {
+
+            writer.writeObject(seatPlans.get(index).getPerson().get(indexSearch(id)));
+        } catch (Exception e) {
+            System.out.println("Error in adding entry");
+            e.printStackTrace();
+            System.err.println(e);
+        }
+
+        writer.close();
     }
 
     private static String checkCnic(String cnic) throws IOException {
