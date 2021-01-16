@@ -171,7 +171,7 @@ public class SeatPlan {
         System.out.print("\nEnter your name : ");
 
         name = input.readLine();
-        while (!(name.matches("^[a-zA-Z ]*$") && name.charAt(0) >= 65 && name.charAt(0) <= 90)) {
+        while (!(name.matches("^[A-Z]{1}[a-zA-Z ]+$"))) {
             System.err.println("\nTry Again. Name can have only alphabets\nFirst Letter should be capital.");
             name = input.readLine();
 
@@ -182,8 +182,8 @@ public class SeatPlan {
         String cnic = input.readLine();
         cnic = checkCnic(cnic);
 
-        while (!cnic.matches("[0-9]+")) {
-            System.err.println("Try Again. Cnic must be a number.");
+        while (!cnic.matches("[0-9]{5}[-]{1}[0-9]{7}[-]{1}[0-9]{1}+")) {
+            System.err.println("Try Again. Cnic must be a number (XXXXX-XXXXXXX-X).");
             cnic = input.readLine();
             cnic = checkCnic(cnic);
 
@@ -270,14 +270,14 @@ public class SeatPlan {
                     }
                 }
                 if (flag == 1) {
+                    System.out.println("Two persons cannot have same cnic. ");
+                    System.out.print("Try Again: ");
+                    cnic = input.readLine();
+
                     break;
                 }
             }
-            if (flag == 1) {
-                System.out.println("Two persons cannot have same cnic. ");
-                System.out.print("Try Again: ");
-                cnic = input.readLine();
-            }
+
         } while (flag == 1);
         return cnic;
     }
