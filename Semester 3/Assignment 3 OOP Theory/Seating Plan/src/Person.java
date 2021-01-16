@@ -108,9 +108,10 @@ public class Person {
 
     @Override
     public String toString() {
-        return "\n\tPerson Id = " + getId() + "\n Name = " + getName() + "\n Cnic = " + getCnic() + "\n Date of Travel = "
-                + getDateOfTravel() + "\n Date of Booking = " + getDateOfBooking() + "\n Source = " + getSourceAirport()
-                + "\n Destination = " + getDestinAirport() + "\n Ticket = " + getWayOfTravel();
+        return "\n\tPerson Id = " + getId() + "\n Name = " + getName() + "\n Cnic = " + getCnic()
+                + "\n Date of Travel = " + getDateOfTravel() + "\n Date of Booking = " + getDateOfBooking()
+                + "\n Source = " + getSourceAirport() + "\n Destination = " + getDestinAirport() + "\n Ticket = "
+                + getWayOfTravel();
     }
 
 }
