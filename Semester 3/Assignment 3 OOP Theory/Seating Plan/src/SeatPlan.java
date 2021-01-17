@@ -168,12 +168,12 @@ public class SeatPlan {
                     }
                 }
             }
+
         } catch (EOFException e) {
             System.out.println("No more records found.");
         } catch (Exception e) {
             System.out.println(e);
         }
-        // reader.close();
         // char temp = id.charAt(0);
         // int index = Integer.parseInt(String.valueOf(temp));
 
