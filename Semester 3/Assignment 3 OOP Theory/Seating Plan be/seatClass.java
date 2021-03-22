@@ -8,7 +8,7 @@ public class seatClass {
     static {
         String id;
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             ArrayList<people> peoplesList = new ArrayList<>();
 
             for (int j = 0; j < 4; j++) {
@@ -40,7 +40,7 @@ public class seatClass {
     }
 
     public static void seatPlan() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.print("\n" + (i + 1) + " ");
             for (int j = 0; j < 4; j++) {
                 if (j == 0) {
@@ -133,7 +133,7 @@ public class seatClass {
     }
 
     public static void seatsAvailable() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.print("\n" + (i + 1) + "  ");
             for (int j = 0; j < 4; j++) {
                 if (seatsInPlane.get(i).getpeoplesList().get(j).title == null) {
@@ -158,7 +158,7 @@ public class seatClass {
     }
 
     public static void seatsReserved() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.print("\n" + (i + 1) + "  ");
             for (int j = 0; j < 4; j++) {
                 if (seatsInPlane.get(i).getpeoplesList().get(j).title != null) {
