@@ -17,14 +17,17 @@ public class factorial {
         if (number == 0) {
             sum = 1;
         } else {
-            for (int i = number - 1; i > 1; i--) {
+            int i = number - 1;
+            while (i > 1) {
 
                 subSum = sum;
                 sum = 0;
-                for (int j = 0; j < i; j++) {
+                int j = 0;
+                while (j < i) {
                     sum += subSum;
+                    j++;
                 }
-
+                i--;
             }
 
         }
