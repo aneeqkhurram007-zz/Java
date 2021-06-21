@@ -7,7 +7,6 @@ public class s2 {
     }
 
     static void sumOfPairs(int num, int[] arr) {
-
         int i = 0;
         int sum = 0;
         while (i < 10) {
